@@ -115,6 +115,8 @@ export interface UiArr extends UiSchema, UiItem {
     ArrContainer?: (label: any, content: JSX.Element) => JSX.Element;
     RowContainer?: (content: JSX.Element) => JSX.Element;
     RowSeperator?: JSX.Element;
+    onDeleted?: (row: any) => void;
+    onRestored?: (row: any) => void;
 }
 export interface UiGroup extends UiItem {
     widget: 'group';

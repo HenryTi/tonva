@@ -892,7 +892,7 @@
         "affectsGlobalScope": false
       },
       "./src/components/form/widgets/arrcomponent.tsx": {
-        "version": "65e58afc4581a0781de899c306f9a871c53978d31a73b8dca1097b1697189775",
+        "version": "840925bf05cdcb4bc3ce5fb8decd3c08bf4920570eca2e9c88ea64915496ff63",
         "signature": "dcff76b69d1599f5f9a30d38aa261cdd2455f1a59b80db9bb72054be0b189770",
         "affectsGlobalScope": false
       },
@@ -1002,8 +1002,8 @@
         "affectsGlobalScope": false
       },
       "./src/components/schema/uischema.ts": {
-        "version": "cc01f32965136311e616672fcee97df970c3d8824d257a1c0c4aa8bfb541c857",
-        "signature": "c8beb4bce8630c71b52eea9fc9dbc9cac71860f7ec27c738dbb65cae6c298837",
+        "version": "19d0ba1b143167fa3d3292e692276821c04ae65835227265f876534ec43fca9f",
+        "signature": "3e8873287b08854319288e7ee93f7468611670aa36b964db87d671de6c17355c",
         "affectsGlobalScope": false
       },
       "./src/components/schema/touiselectitems.ts": {
@@ -1253,7 +1253,7 @@
       },
       "./src/uq/uqman.ts": {
         "version": "6ead376f3a0c8c65181a20970033729301e44075a77a2ecb3d46f667c02262d9",
-        "signature": "d52a8b03578a83b014467b61ab93202d1a582c95621f3edaa3db2e418374c92d",
+        "signature": "4d79545745128623191db6352524590da4fdff0e742bf9743cfc4c2143a431b1",
         "affectsGlobalScope": false
       },
       "./src/app/centerapi.ts": {

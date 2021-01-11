@@ -37,6 +37,7 @@ exports.ArrComponent = mobx_react_1.observer(function (_a) {
     var form = parentContext.form;
     var arrRowContexts = parentContext.getArrRowContexts(name);
     var ui = parentContext.getUiItem(name);
+    var onDeleted = ui.onDeleted, onRestored = ui.onRestored;
     var arrLabel = name;
     var Templet;
     var selectable, deletable, restorable;
@@ -123,11 +124,15 @@ exports.ArrComponent = mobx_react_1.observer(function (_a) {
                     var $source = row.$source;
                     if ($source !== undefined)
                         $source.$isDeleted = !isDeleted;
+                    if (onRestored)
+                        onRestored(row);
                 }
                 else {
                     var p = data.indexOf(row);
                     if (p >= 0)
                         data.splice(p, 1);
+                    if (onDeleted)
+                        onDeleted(row);
                 }
                 rowContext.clearErrors();
             };
