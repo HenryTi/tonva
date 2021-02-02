@@ -601,7 +601,7 @@ export class Nav {
             }
             //window.setInterval(()=>console.error('tick every 5 seconds'), 5000);
 			nav.clear();
-			nav.onSysNavRoutes();
+			//nav.onSysNavRoutes();
 			this.startWait();
             
             let user: User = this.local.user.get();
@@ -662,17 +662,6 @@ export class Nav {
 		nav.showForget();
 	}
 
-	private sysRoutes: { [route: string]: NavPage } = {
-		'/login': this.navLogin,
-		'/logout': this.navLogout,
-		'/register': this.navRegister,
-		'/forget': this.navForget,
-	}
-
-	onSysNavRoutes() {
-		this.onNavRoutes(this.sysRoutes);
-	}
-
 	navigateToLogin() {
 		nav.navigate('/login');
 	}
@@ -698,7 +687,27 @@ export class Nav {
 	onNavRoute(navPage: NavPage) {
 		this.on(this.routeFromNavPage(navPage));
 	}
+	private doneSysRoutes:boolean = false;
+	private sysRoutes: { [route: string]: NavPage } = {
+		'/login': this.navLogin,
+		'/logout': this.navLogout,
+		'/register': this.navRegister,
+		'/forget': this.navForget,
+	}
+	/*
+	onSysNavRoutes() {
+		this.onNavRoutes(this.sysRoutes);
+	}
+	*/
 	onNavRoutes(navPageRoutes: {[url:string]: NavPage}) {
+		if (this.doneSysRoutes === false) {
+			this.doneSysRoutes = true;
+			this.internalOnNavRoutes(this.sysRoutes);
+		}
+		this.internalOnNavRoutes(navPageRoutes);
+	}
+
+	private internalOnNavRoutes(navPageRoutes: {[url:string]: NavPage}) {
 		if (!navPageRoutes) return;
 		this.navPageRoutes = _.merge(this.navPageRoutes, navPageRoutes);
 		let navOns: { [route: string]: (params: any, queryStr: any) => void } = {};
