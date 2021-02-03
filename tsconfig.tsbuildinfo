@@ -537,7 +537,7 @@
         "affectsGlobalScope": false
       },
       "./src/components/navigo.ts": {
-        "version": "0ce86675a14418ac0f0b6e883466ffc98dc1031bf7b1dbabbf63af17cdb1cda6",
+        "version": "79d86f1f6e8867c6a2b6e6958a13756e030e5ef4b6299a5b63213785422dfbce",
         "signature": "cd7a3e096007604d26013977b7eccc53fafa920415b8097679338152f03f6852",
         "affectsGlobalScope": false
       },

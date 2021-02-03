@@ -114,7 +114,7 @@ export class Navigo {
 				let r = route.route;
 				if (r === '' || r === '*') return url;
 				if (typeof r === 'string') {
-					r = r.replace(colonExp, '\\/\\w+');
+					r = r.replace(colonExp, '\\/(\\w|%|[\u4E00-\u9FCC])+');
 				}
 				let routeExp = r + exp;
 				let ret = url.split(new RegExp(routeExp))[0];
@@ -566,7 +566,8 @@ export class Navigo {
 			//if (typeof window.__NAVIGO_WINDOW_LOCATION_MOCK__ !== 'undefined') {
 			//	return window.__NAVIGO_WINDOW_LOCATION_MOCK__;
 			//}
-			return Navigo.cleanUrl(window.location.href);
+			let {href} = window.location;
+			return Navigo.cleanUrl(href);
 		}
 		return '';
 	}

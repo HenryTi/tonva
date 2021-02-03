@@ -101,7 +101,7 @@ var Navigo = /** @class */ (function () {
             if (r === '' || r === '*')
                 return url;
             if (typeof r === 'string') {
-                r = r.replace(colonExp, '\\/\\w+');
+                r = r.replace(colonExp, '\\/(\\w|%|[\u4E00-\u9FCC])+');
             }
             var routeExp = r + exp;
             var ret = url.split(new RegExp(routeExp))[0];
@@ -490,7 +490,8 @@ var Navigo = /** @class */ (function () {
             //if (typeof window.__NAVIGO_WINDOW_LOCATION_MOCK__ !== 'undefined') {
             //	return window.__NAVIGO_WINDOW_LOCATION_MOCK__;
             //}
-            return Navigo.cleanUrl(window.location.href);
+            var href = window.location.href;
+            return Navigo.cleanUrl(href);
         }
         return '';
     };
