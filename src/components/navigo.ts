@@ -236,6 +236,7 @@ export class Navigo {
 		if (this._usePushState) {
 			to = (!absolute ? this._getRoot() + '/' : '') + path.replace(/^\/+/, '/');
 			to = to.replace(/([^:])(\/{2,})/g, '$1/');
+			to = to.replace('/#test/', '/');
 			this._historyUpdate({}, '', to);
 			this.resolve();
 		}
@@ -313,6 +314,9 @@ export class Navigo {
 	
 		let GETParameters = Navigo.extractGETParameters(current || this._cLoc());
 		let onlyURL = Navigo.getOnlyURL(url, this._useHash, this._hash);
+		if (onlyURL.startsWith('/') === false) {
+			onlyURL = '/' + onlyURL;
+		}
 	
 		if (this._paused) return false;
 	
@@ -525,11 +529,13 @@ export class Navigo {
 	}
 
 	private _getRoot() {
-		if (this.root !== null) return this.root;
-		let cLoc = this._cLoc();
-		let cLocRoot = cLoc.split('?')[0];
-		this.root = Navigo.root(cLocRoot, this._routes);
-		return this.root;
+		if (this.root === null) {
+			let cLoc = this._cLoc();
+			let cLocRoot = cLoc.split('?')[0];
+			this.root = Navigo.root(cLocRoot, this._routes);
+		}
+		let root = this.root.replace('#test', '');
+		return root;
 	}
 
 	private _listen() {

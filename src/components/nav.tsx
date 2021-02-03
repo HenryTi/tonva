@@ -9,7 +9,6 @@ import {FetchError} from '../net/fetchError';
 import {appUrl, setAppInFrame, getExHash, getExHashPos} from '../net/appBridge';
 import {LocalData, env} from '../tool';
 import {guestApi, logoutApis, setCenterUrl, setCenterToken, appInFrame, host, resUrlFromHost, messageHub} from '../net';
-//import { WsBase, wsBridge } from '../net/wsChannel';
 import { resOptions } from '../res/res';
 import { Loading } from './loading';
 import { Navigo, RouteFunc, Hooks, NamedRoute } from './navigo';
@@ -22,6 +21,8 @@ import { FA } from './simple';
 import { userApi } from '../net';
 import { ReloadPage, ConfirmReloadPage } from './reloadPage';
 import { PageWebNav } from './page';
+import { Login } from './login';
+import { createLogin } from '../auth';
 
 const regEx = new RegExp('Android|webOS|iPhone|iPad|' +
     'BlackBerry|Windows Phone|'  +
@@ -37,10 +38,9 @@ export const mobileHeaderStyle = isMobile? {
 //const logo = require('../img/logo.svg');
 let logMark: number;
 const logs:string[] = [];
-
 export type NavPage = (params:any) => Promise<void>;
 
-export interface Props //extends React.Props<Nav>
+export interface Props
 {
     onLogined: (isUserLogin?:boolean)=>Promise<void>;
     notLogined?: ()=>Promise<void>;
@@ -387,7 +387,7 @@ export interface NavSettings {
 export class Nav {
     private navView:NavView;
     //private ws: WsBase;
-    private wsHost: string;
+	private wsHost: string;
     private local: LocalData = new LocalData();
 	private navigo: Navigo;
 	//isRouting: boolean = false;
@@ -742,7 +742,9 @@ export class Nav {
 			alert('Is not in webnav state, cannot navigate to url "' + url + '"');
 			return;
 		}
-		if (this.testing === true) url += '#test';
+		if (this.testing === true) {
+			url += '#test';
+		}
 		return this.navigo.navigate(url, absolute);
 	}
 
@@ -791,7 +793,10 @@ export class Nav {
         if (callback !== undefined) //this.loginCallbacks.has)
             callback(user);
             //this.loginCallbacks.call(user);
-        else {
+        else if (this.isWebNav === true) {
+			this.navigate('/index');
+		}
+		else {
             await this.showAppView(isUserLogin);
         }
 	}
@@ -851,68 +856,35 @@ export class Nav {
             <div className="p-3" dangerouslySetInnerHTML={content} />
         </Page>);
     }
-/*
-    private async getPrivacy(privacy:string):Promise<string> {
-        const headers = new  Headers({
-            "Content-Type":'text/plain'
-       })
-        let pos = privacy.indexOf('://');
-        if (pos > 0) {
-            let http = privacy.substring(0, pos).toLowerCase();
-            if (http === 'http' || http === 'https') {
-                try {
-                    let res = await fetch(privacy, {
-                        method:'GET',
-                        headers: headers,
-                    });
-                    let text = await res.text();
-                    return text;
-                }
-                catch (err) {
-                    return err.message;
-                }
-            }
-        }
-        return privacy;
-    }
-*/
-    async showLogin(callback?: (user:User)=>Promise<void>, withBack?:boolean) {
-        let lv = await import('../entry/login');
-        let loginView = React.createElement(
-			lv.default, 
-			{withBack, callback}
-		);
-        if (withBack !== true) {
-            this.navView.clear();
-            this.pop();
-        }
-        this.navView.push(loginView);
+
+	private createLogin = createLogin;
+	setCreateLogin(createLogin: ()=>Promise<Login>) {
+		this.createLogin = createLogin;
+	}
+
+	private login: Login;
+	private async getLogin():Promise<Login> {
+		if (this.login) return this.login;
+		return this.login = await this.createLogin();
+	}
+	async showLogin(callback?: (user:User)=>Promise<void>, withBack?:boolean) {
+		let login = await this.getLogin();
+		login.showLogin(callback, withBack);
     }
 
     async showLogout(callback?: ()=>Promise<void>) {
-        let footer = <div className="text-center justify-content-center">
-            <button className="btn btn-outline-danger" onClick={this.resetAll}>升级软件</button>
-        </div>;
-        nav.push(<Page header="安全退出" back="close" footer={footer}>
-            <div className="my-5 mx-1 border border-info bg-white rounded p-3 text-center">
-                <div>退出当前账号不会删除任何历史数据，下次登录依然可以使用本账号</div>
-                <div className="mt-3 text-center">
-                        <button className="btn btn-danger" onClick={()=>this.logout(callback)}>安全退出</button>
-                </div>
-            </div>
-        </Page>);
+		let login = await this.getLogin();
+		login.showLogout(callback);
 	}
 	
 	async showRegister() {
-		let lv = await import('../entry/register');
-		let c = new lv.RegisterController(undefined);
-		await c.start();
+		let login = await this.getLogin();
+		login.showRegister();
 	}
 
 	async showForget() {
-		let lv = await import('../entry/register');
-		let c = new lv.ForgetController(undefined);
-		await c.start();
+		let login = await this.getLogin();
+		login.showForget();
 	}
 
     async logout(callback?:()=>Promise<void>) { //notShowLogin?:boolean) {
@@ -931,8 +903,8 @@ export class Nav {
     }
 
     async changePassword() {
-        let cp = await import('../entry/changePassword');
-        nav.push(<cp.ChangePasswordPage />);
+		let login = await this.getLogin();
+		login.showChangePassword();
     }
 
     get level(): number {

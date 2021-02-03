@@ -516,9 +516,14 @@
         "signature": "680f7ccff8c8c2ed25f4882c5c6ec17ef4cc324b18fd071ce1f72d7c948ecd2a",
         "affectsGlobalScope": false
       },
+      "./src/tool/rules.ts": {
+        "version": "ab2f58e4f1d2c292c57d6e24deaadd27b3a201bef13f6ac107dd61fa861d0d3d",
+        "signature": "34c350d29d459e9e5345ce126b9a008b5a2709673fd29df02d3ef2b22b8d185b",
+        "affectsGlobalScope": false
+      },
       "./src/tool/index.ts": {
-        "version": "8332361107374922e51563a2a1a697a8e4c14cca0b5b9bf9e5a75e20e20691ba",
-        "signature": "3eafc04941c935895a8ff9e1919d04f5fbd9280f8a9db9c130f76024b5e3af4f",
+        "version": "866a8de360a4806adb1be466ca7a84a84790ee8fe711d4e9e2b275e748d3af7d",
+        "signature": "c6e7d163add671fa1833219ded1585d8f9bab844b0ac373b68f527524c9558b8",
         "affectsGlobalScope": false
       },
       "./src/net/messagehub.ts": {
@@ -532,7 +537,7 @@
         "affectsGlobalScope": false
       },
       "./src/components/navigo.ts": {
-        "version": "48d276d49ce3c0fc305e481c35b09fdf7295672b4bfdb6438322197ac796b382",
+        "version": "0ce86675a14418ac0f0b6e883466ffc98dc1031bf7b1dbabbf63af17cdb1cda6",
         "signature": "cd7a3e096007604d26013977b7eccc53fafa920415b8097679338152f03f6852",
         "affectsGlobalScope": false
       },
@@ -726,44 +731,14 @@
         "signature": "56f7abab8f3efde44f97a397dbfc10a22db220fb3269626c9a5594d7fb80456a",
         "affectsGlobalScope": false
       },
-      "./src/res/formres.ts": {
-        "version": "80da0b72e9de980c26f49fc86c5f75640f03e4e9f98dde312db9397447afa8be",
-        "signature": "5b7b566e15a1c6543a228e2e14911b6cf90fba41b97a373281baf04c351e7224",
+      "./src/components/login.tsx": {
+        "version": "0a3a0b3462d165d65a283a58e54bd6ca1fabd94eaade1974f4730abfbd54dc6c",
+        "signature": "058b3f0df32a52e7bce2f5b38ec5161f7056288bbe966a1db5b83d76f152643e",
         "affectsGlobalScope": false
       },
-      "./src/res/listres.ts": {
-        "version": "c6a82a0c5de059af949b1b6756e60035e761249e213ab408d6fa8b346cfe1844",
-        "signature": "25d66648d6124a31271afc40277a2caede336029834884f7fbdb67ff68e03b66",
-        "affectsGlobalScope": false
-      },
-      "./src/res/entry/login.ts": {
-        "version": "08b4c04acfd0e023df86d207460f3b5a447c5c397096f3104807957b4d0027f1",
-        "signature": "b420f02adaaee3a4638bb71cdb046d214789514ce36a9b864ff15dbadd04dd68",
-        "affectsGlobalScope": false
-      },
-      "./src/res/entry/register.ts": {
-        "version": "9cbfc1dc78e955251e523c3bd5b4c6d017075a3f2164198cd948cd445356b39f",
-        "signature": "c4bf949ba63c6ad5866e29a8d51f55c579569b6b6d6cbd22cb7da32ed35f8e74",
-        "affectsGlobalScope": false
-      },
-      "./src/res/entry/index.ts": {
-        "version": "4c37dff01647a99c2d6b71617dbbb201370c6fb31dbf9f2a2a7d7d3b0fd9ee12",
-        "signature": "4c37dff01647a99c2d6b71617dbbb201370c6fb31dbf9f2a2a7d7d3b0fd9ee12",
-        "affectsGlobalScope": false
-      },
-      "./src/res/index.ts": {
-        "version": "fb5d628cd35abc9353b7c66913bf89da5e5fa94dca70ce7a99532354f33a5c33",
-        "signature": "c3dd6614a24845de99c640c33e57816e5315f4ab4b305f9fe1005f19957cb190",
-        "affectsGlobalScope": false
-      },
-      "./src/entry/tools.tsx": {
-        "version": "eecb5a3b8d8d88e962a6b37aa55d43adb5fbeb6fc6f2a4ebc38d904f2c0ddaa7",
-        "signature": "87dcb27d68c976da37056c28629a8b954f9cedf98cceda4e55cd98e53c24b1ee",
-        "affectsGlobalScope": false
-      },
-      "./src/entry/login.tsx": {
-        "version": "1779403788b730c69607319f2f4e60a0687c4f56b87874a0a140785b72a18c43",
-        "signature": "a010fce9744ea0086f251f05d9430403d257202e3543d66f7fbb402f7dac00df",
+      "./src/auth/meinfo.tsx": {
+        "version": "d15047d10f59a9b293bb8bd94e49f25ada3d133bc9025b42a94dca621ad9c1d3",
+        "signature": "6e5aeabc725c720c6ce9d2b1bc6c81aab4fb08b2e039e380c829daea6c9ff3d5",
         "affectsGlobalScope": false
       },
       "./src/vm/view.tsx": {
@@ -791,19 +766,74 @@
         "signature": "433e750ed742566baed5f392b192b71db437ee2d844156cdcd56b200667d05f5",
         "affectsGlobalScope": false
       },
-      "./src/entry/register.tsx": {
-        "version": "4cf2b424cc67a6caa665d9d0c934db62f610c19447d2aeef05f3fd7715b7f732",
-        "signature": "e690afe2d61f385f98c743902b84a79512dda2a21556c596592c07c82cf77586",
+      "./src/auth/vlogout.tsx": {
+        "version": "5156d9de4193ee5f7a9ff4155e6efebe0420efa738ddf6a99da5f8c8a577f708",
+        "signature": "bc804e581020b93ba4309ace8d6e63a1f22fe2e814dc252806f8af1e23808f13",
         "affectsGlobalScope": false
       },
-      "./src/entry/changepassword.tsx": {
-        "version": "d48da1439703808eb6ac7b19fa22bdae969231d52bbeee7dff3a6557741465ae",
-        "signature": "5b939471145f793b924060385888927ff5f9b0e919f1fbb93c1f1f2273bf709f",
+      "./src/auth/tools.tsx": {
+        "version": "1a43a872f610dbb4d0a76d99a9e4638c26baa136bf9ec7c45dd173fb84b0a141",
+        "signature": "87dcb27d68c976da37056c28629a8b954f9cedf98cceda4e55cd98e53c24b1ee",
+        "affectsGlobalScope": false
+      },
+      "./src/auth/vlogin.tsx": {
+        "version": "0b4ec5ce6f69999b7cffb24c421dc027a46672ec8b13fcb3d62247c47c874269",
+        "signature": "a8fa781c5747bbea212f21f1128a6f0e2d1d44a783e849d92cd5e852cd71d04d",
+        "affectsGlobalScope": false
+      },
+      "./src/auth/vchangepassword.tsx": {
+        "version": "51fedfe7f83bf3d80f96b7df06f7c33c40fd2d8792b8b1d44b9afdb07aab264f",
+        "signature": "c4dec4fba6ffecdaa36ffcba6de7699569dadb7877ca84c7c9fcdc0a4a673101",
+        "affectsGlobalScope": false
+      },
+      "./src/auth/register/vstart.tsx": {
+        "version": "d989cb05dee044609920023f186ccb55b8e97e198e49b6aff17cd73de6754fb4",
+        "signature": "d74f3ab8c98a38122c2a51db4b9462015f57a8637ba58b9371c1d2ac7f337e75",
+        "affectsGlobalScope": false
+      },
+      "./src/auth/register/vverify.tsx": {
+        "version": "e50b1112626b3aefee0e5648f1045090d6b2c6a06afe4f1921bf4be44372cb0b",
+        "signature": "426ffb2091add023a8254784a5b298644ffc16a90ec99f34c2e0369776d2abda",
+        "affectsGlobalScope": false
+      },
+      "./src/auth/register/vpassword.tsx": {
+        "version": "15abd9b012750770bcd35318a3784e4da4368280ebb2342544f9e98a6b4498ea",
+        "signature": "02baee1e4a4de79ca36440c43a44e0ee45a5624fb9e76a5a922f6bd4ad185fd2",
+        "affectsGlobalScope": false
+      },
+      "./src/auth/register/vsuccess.tsx": {
+        "version": "3c24748e4ccae9b49886fb210ceef2e426f955feeb609f12d151f2f4b9348108",
+        "signature": "1f5f95a6d2ebdb63c9c6547c653ba3c59204ba271527ffa9c8f8e123b8a99177",
+        "affectsGlobalScope": false
+      },
+      "./src/auth/register/cregister.ts": {
+        "version": "f791bdacd908521c0c71e05c96981210cfa08c5de7bc34d6c611157e909a7800",
+        "signature": "d7e05b735a51cc548e6219f906df81d54e92a4afd365d9a22d6f918cc3260981",
+        "affectsGlobalScope": false
+      },
+      "./src/auth/register/index.ts": {
+        "version": "b2baa411ab73cf153bb6605204b97832fd34e35e6b61671cf3e9c95967424796",
+        "signature": "b2baa411ab73cf153bb6605204b97832fd34e35e6b61671cf3e9c95967424796",
+        "affectsGlobalScope": false
+      },
+      "./src/auth/clogin.tsx": {
+        "version": "3bd361c46996c98b87cc47d90bd871f79fbcc282666eff136c0f914fb78b9476",
+        "signature": "723e25ecc023b3bcc189ea3992cece67428c8136b52f4fbd9c9dc48863c298b7",
+        "affectsGlobalScope": false
+      },
+      "./src/auth/createlogin.ts": {
+        "version": "b1479431eb128b602ee1c53d534685dc62936c54b6c3e6dee7f0ad69825ff418",
+        "signature": "344bbe358139c9df96543c365906bf130baf9b3f6559233b5a2db2172debe713",
+        "affectsGlobalScope": false
+      },
+      "./src/auth/index.ts": {
+        "version": "848d40739e998581d92f9b70252e5c3b05dc8f6ff5321589a2b7d77f03a9c477",
+        "signature": "e8513127fbc03c8d8723a430edeefc562b0c425aa4a1b33f8fcb12eeb28ae62c",
         "affectsGlobalScope": false
       },
       "./src/components/nav.tsx": {
-        "version": "082f80af86822eafe1221882253b3b9162ae95a7ffa4a971881e81f411c8cf03",
-        "signature": "1443794da06ad3c14a7126d05c6549346967aa9d760b9a255f6efb7f868015b1",
+        "version": "31b3c7452fcf26d8507168eea76d17144f3a00357c98f06b7c9b93c0c694c634",
+        "signature": "56aa174d816fd806ed897607ac4e921bbaceeb2105887f0e782072a603f2057f",
         "affectsGlobalScope": false
       },
       "./src/components/schema/schema.ts": {
@@ -814,6 +844,11 @@
       "./src/components/form/field.tsx": {
         "version": "d7c92cadd90c8f9d1f8e3de13ecc1a34df53a8ed7abdf4bfa02d0cd12d7031af",
         "signature": "20c5ad493ce4b284554aaeb5ca9bba6a1d35d8f2c747d1ffceafc816a46a8874",
+        "affectsGlobalScope": false
+      },
+      "./src/res/formres.ts": {
+        "version": "80da0b72e9de980c26f49fc86c5f75640f03e4e9f98dde312db9397447afa8be",
+        "signature": "5b7b566e15a1c6543a228e2e14911b6cf90fba41b97a373281baf04c351e7224",
         "affectsGlobalScope": false
       },
       "./src/components/form/rules/index.ts": {
@@ -986,6 +1021,31 @@
         "signature": "954490cecd09cc44f100ed43c15f4a6b827b4d0a91f9a9bc6f16bf2d7ebd25ff",
         "affectsGlobalScope": false
       },
+      "./src/res/listres.ts": {
+        "version": "c6a82a0c5de059af949b1b6756e60035e761249e213ab408d6fa8b346cfe1844",
+        "signature": "25d66648d6124a31271afc40277a2caede336029834884f7fbdb67ff68e03b66",
+        "affectsGlobalScope": false
+      },
+      "./src/res/entry/login.ts": {
+        "version": "08b4c04acfd0e023df86d207460f3b5a447c5c397096f3104807957b4d0027f1",
+        "signature": "b420f02adaaee3a4638bb71cdb046d214789514ce36a9b864ff15dbadd04dd68",
+        "affectsGlobalScope": false
+      },
+      "./src/res/entry/register.ts": {
+        "version": "9cbfc1dc78e955251e523c3bd5b4c6d017075a3f2164198cd948cd445356b39f",
+        "signature": "c4bf949ba63c6ad5866e29a8d51f55c579569b6b6d6cbd22cb7da32ed35f8e74",
+        "affectsGlobalScope": false
+      },
+      "./src/res/entry/index.ts": {
+        "version": "4c37dff01647a99c2d6b71617dbbb201370c6fb31dbf9f2a2a7d7d3b0fd9ee12",
+        "signature": "4c37dff01647a99c2d6b71617dbbb201370c6fb31dbf9f2a2a7d7d3b0fd9ee12",
+        "affectsGlobalScope": false
+      },
+      "./src/res/index.ts": {
+        "version": "fb5d628cd35abc9353b7c66913bf89da5e5fa94dca70ce7a99532354f33a5c33",
+        "signature": "c3dd6614a24845de99c640c33e57816e5315f4ab4b305f9fe1005f19957cb190",
+        "affectsGlobalScope": false
+      },
       "./src/components/form/form.tsx": {
         "version": "52653b3dd27822055b5cf2e9777f504e4ec58cc4bbb3422afec2fafeb1512edc",
         "signature": "dcb1a0a9f7221cc2f4d6b62eda70197cb04427288cd0cfb55201ff9877638df3",
@@ -1024,11 +1084,6 @@
       "./src/components/edit/index.tsx": {
         "version": "20f5cb15aeb4d68e4d0ba9bb660f9ae40e292356d7d7e50d3ee2e5737e53daec",
         "signature": "20f5cb15aeb4d68e4d0ba9bb660f9ae40e292356d7d7e50d3ee2e5737e53daec",
-        "affectsGlobalScope": false
-      },
-      "./src/components/rules/index.ts": {
-        "version": "ab2f58e4f1d2c292c57d6e24deaadd27b3a201bef13f6ac107dd61fa861d0d3d",
-        "signature": "34c350d29d459e9e5345ce126b9a008b5a2709673fd29df02d3ef2b22b8d185b",
         "affectsGlobalScope": false
       },
       "./src/components/list/base.tsx": {
@@ -1112,8 +1167,8 @@
         "affectsGlobalScope": false
       },
       "./src/components/index.ts": {
-        "version": "e71c38b39eb777904a45ef81d3204b140d4eff9392a2e6f124614cf5d7a3035b",
-        "signature": "e71c38b39eb777904a45ef81d3204b140d4eff9392a2e6f124614cf5d7a3035b",
+        "version": "acd012b16a6739dd360fd6c36dafb5492febb3ab8ee0d9cc4ce53e69e80c7ce9",
+        "signature": "bdfce0db70cbd9c7fa360c6462631766858a74c342bd2c12ee7acab5b58f35c4",
         "affectsGlobalScope": false
       },
       "./src/net/appbridge.ts": {
@@ -1144,16 +1199,6 @@
       "./src/net/index.ts": {
         "version": "aef10a679d9f799ce0cd011b7c92331e87569bd43089e933dd81f19ceb5b8c82",
         "signature": "abc7761e4688a63c15a96f5cd33b1946799a6353b6d8b48b378dd542f2d17f89",
-        "affectsGlobalScope": false
-      },
-      "./src/entry/meinfo.tsx": {
-        "version": "d15047d10f59a9b293bb8bd94e49f25ada3d133bc9025b42a94dca621ad9c1d3",
-        "signature": "6e5aeabc725c720c6ce9d2b1bc6c81aab4fb08b2e039e380c829daea6c9ff3d5",
-        "affectsGlobalScope": false
-      },
-      "./src/entry/index.ts": {
-        "version": "e572c2f21976c238e9773b1efcb90d636c14d5a159c7d555c21a8dc13ecbe698",
-        "signature": "a8b3b736fa42e209d6a32c215470fccec8279479c45460d79fc3288c59b12cd8",
         "affectsGlobalScope": false
       },
       "./src/uq/entity.ts": {
@@ -1302,8 +1347,13 @@
         "affectsGlobalScope": false
       },
       "./src/index.ts": {
-        "version": "916460955732d4ac368205c4ca2e286dc8fe6fd04406dbc3e0779a9635770dcb",
-        "signature": "916460955732d4ac368205c4ca2e286dc8fe6fd04406dbc3e0779a9635770dcb",
+        "version": "a8baf687616bf151a41260294b9506ba9b272e28b1dc1679900c3df7bc0a6ecc",
+        "signature": "a8baf687616bf151a41260294b9506ba9b272e28b1dc1679900c3df7bc0a6ecc",
+        "affectsGlobalScope": false
+      },
+      "./src/auth/register/vregister.tsx": {
+        "version": "8db25b25daba41791934a542ae87ed854995a5505dd5a90d518fc64d3de130f9",
+        "signature": "12cd4eed4e2cbda416e1a37a6dd0537e7a0c03d9bd1c3517034253f5fbc5a3d4",
         "affectsGlobalScope": false
       },
       "./src/components/callbacks.ts": {
@@ -1336,6 +1386,11 @@
         "signature": "d7c743ce8395417c05e46fa2c6008392d5be327ea213dd60f98091d4b2563f17",
         "affectsGlobalScope": false
       },
+      "./src/components/rules/index.ts": {
+        "version": "ab2f58e4f1d2c292c57d6e24deaadd27b3a201bef13f6ac107dd61fa861d0d3d",
+        "signature": "34c350d29d459e9e5345ce126b9a008b5a2709673fd29df02d3ef2b22b8d185b",
+        "affectsGlobalScope": false
+      },
       "./src/components/simple/image.tsx": {
         "version": "4068895a94aa9ca2235e33e3edadd9a0d7d7b0e96a99523e67bac7e19330e235",
         "signature": "3e8345113bc7821506509d3975d02086dfe3e2099280e1430f1afdd4cf030c33",
@@ -1344,26 +1399,6 @@
       "./src/components/simple/resuploader.tsx": {
         "version": "83b5c316642b15f63f332c7d0367e888578768701d2e78233e52daab64b2824e",
         "signature": "18874fca41ed384530277b3155c8394bcae60298340c80506c7f41d088be24ef",
-        "affectsGlobalScope": false
-      },
-      "./src/entry/forget.tsx": {
-        "version": "af5d0c0daa0f9727c81c125b882e013a7624d1182fda89a1fdd18ae244c5632d",
-        "signature": "162af5c6198a399d88d590fde083357eb5dc340e4f1545e9ca1ad580de00f665",
-        "affectsGlobalScope": false
-      },
-      "./src/entry/res/login.ts": {
-        "version": "39220cd5924500b07b7f9ef0d64faea72c08c65020c6619e53636505f392806a",
-        "signature": "17247298607bcf57ae5bd712ecf99f765fa09cbe7840ef99186971e7a6340c25",
-        "affectsGlobalScope": false
-      },
-      "./src/entry/res/register.ts": {
-        "version": "c9d74683977244e2863d6fb8334552f72888967b5743688e090611d15c0e7c0c",
-        "signature": "c30c8949c08081f68cc7a90ffcd7c3fe36d00d0b3f230bf025bd868750d32742",
-        "affectsGlobalScope": false
-      },
-      "./src/entry/res/index.ts": {
-        "version": "4c37dff01647a99c2d6b71617dbbb201370c6fb31dbf9f2a2a7d7d3b0fd9ee12",
-        "signature": "4c37dff01647a99c2d6b71617dbbb201370c6fb31dbf9f2a2a7d7d3b0fd9ee12",
         "affectsGlobalScope": false
       },
       "./src/net/serializejson.ts": {
@@ -2070,6 +2105,129 @@
         "./src/uq/index.ts",
         "./src/vm/index.ts"
       ],
+      "./src/auth/clogin.tsx": [
+        "./node_modules/@types/node/base.d.ts",
+        "./node_modules/@types/node/ts3.2/index.d.ts",
+        "./node_modules/@types/react/index.d.ts",
+        "./src/auth/register/index.ts",
+        "./src/auth/vchangepassword.tsx",
+        "./src/auth/vlogin.tsx",
+        "./src/auth/vlogout.tsx",
+        "./src/components/index.ts",
+        "./src/net/index.ts",
+        "./src/tool/index.ts",
+        "./src/vm/index.ts"
+      ],
+      "./src/auth/createlogin.ts": [
+        "./node_modules/@types/node/base.d.ts",
+        "./node_modules/@types/node/ts3.2/index.d.ts",
+        "./src/auth/clogin.tsx",
+        "./src/components/index.ts"
+      ],
+      "./src/auth/index.ts": [
+        "./node_modules/@types/node/base.d.ts",
+        "./node_modules/@types/node/ts3.2/index.d.ts",
+        "./src/auth/clogin.tsx",
+        "./src/auth/createlogin.ts",
+        "./src/auth/meinfo.tsx"
+      ],
+      "./src/auth/meinfo.tsx": [
+        "./node_modules/@types/node/base.d.ts",
+        "./node_modules/@types/node/ts3.2/index.d.ts",
+        "./node_modules/@types/react/index.d.ts",
+        "./node_modules/mobx/lib/mobx.d.ts",
+        "./src/components/index.ts",
+        "./src/net/index.ts"
+      ],
+      "./src/auth/register/cregister.ts": [
+        "./node_modules/@types/node/base.d.ts",
+        "./node_modules/@types/node/ts3.2/index.d.ts",
+        "./src/auth/register/vpassword.tsx",
+        "./src/auth/register/vstart.tsx",
+        "./src/auth/register/vsuccess.tsx",
+        "./src/auth/register/vverify.tsx",
+        "./src/components/index.ts",
+        "./src/net/index.ts",
+        "./src/vm/index.ts"
+      ],
+      "./src/auth/register/index.ts": [
+        "./node_modules/@types/node/base.d.ts",
+        "./node_modules/@types/node/ts3.2/index.d.ts",
+        "./src/auth/register/cregister.ts"
+      ],
+      "./src/auth/register/vpassword.tsx": [
+        "./node_modules/@types/node/base.d.ts",
+        "./node_modules/@types/node/ts3.2/index.d.ts",
+        "./node_modules/@types/react/index.d.ts",
+        "./src/auth/register/cregister.ts",
+        "./src/components/index.ts",
+        "./src/vm/index.ts"
+      ],
+      "./src/auth/register/vregister.tsx": [
+        "./node_modules/@types/node/base.d.ts",
+        "./node_modules/@types/node/ts3.2/index.d.ts",
+        "./node_modules/@types/react/index.d.ts",
+        "./src/auth/clogin.tsx",
+        "./src/vm/index.ts"
+      ],
+      "./src/auth/register/vstart.tsx": [
+        "./node_modules/@types/node/base.d.ts",
+        "./node_modules/@types/node/ts3.2/index.d.ts",
+        "./node_modules/@types/react/index.d.ts",
+        "./src/auth/register/cregister.ts",
+        "./src/auth/tools.tsx",
+        "./src/components/index.ts",
+        "./src/vm/index.ts"
+      ],
+      "./src/auth/register/vsuccess.tsx": [
+        "./node_modules/@types/node/base.d.ts",
+        "./node_modules/@types/node/ts3.2/index.d.ts",
+        "./node_modules/@types/react/index.d.ts",
+        "./src/auth/register/cregister.ts",
+        "./src/vm/index.ts"
+      ],
+      "./src/auth/register/vverify.tsx": [
+        "./node_modules/@types/node/base.d.ts",
+        "./node_modules/@types/node/ts3.2/index.d.ts",
+        "./node_modules/@types/react/index.d.ts",
+        "./src/auth/register/cregister.ts",
+        "./src/components/index.ts",
+        "./src/vm/index.ts"
+      ],
+      "./src/auth/tools.tsx": [
+        "./node_modules/@types/node/base.d.ts",
+        "./node_modules/@types/node/ts3.2/index.d.ts",
+        "./node_modules/@types/react/index.d.ts",
+        "./src/components/index.ts",
+        "./src/tool/index.ts",
+        "./src/types/images.d.ts"
+      ],
+      "./src/auth/vchangepassword.tsx": [
+        "./node_modules/@types/node/base.d.ts",
+        "./node_modules/@types/node/ts3.2/index.d.ts",
+        "./node_modules/@types/react/index.d.ts",
+        "./src/auth/clogin.tsx",
+        "./src/components/index.ts",
+        "./src/vm/index.ts"
+      ],
+      "./src/auth/vlogin.tsx": [
+        "./node_modules/@types/node/base.d.ts",
+        "./node_modules/@types/node/ts3.2/index.d.ts",
+        "./node_modules/@types/react/index.d.ts",
+        "./src/auth/clogin.tsx",
+        "./src/auth/tools.tsx",
+        "./src/components/index.ts",
+        "./src/tool/index.ts",
+        "./src/vm/index.ts"
+      ],
+      "./src/auth/vlogout.tsx": [
+        "./node_modules/@types/node/base.d.ts",
+        "./node_modules/@types/node/ts3.2/index.d.ts",
+        "./node_modules/@types/react/index.d.ts",
+        "./src/auth/clogin.tsx",
+        "./src/components/index.ts",
+        "./src/vm/index.ts"
+      ],
       "./src/components/autohidetips.tsx": [
         "./node_modules/@types/node/base.d.ts",
         "./node_modules/@types/node/ts3.2/index.d.ts",
@@ -2503,13 +2661,13 @@
         "./src/components/image.tsx",
         "./src/components/list/index.tsx",
         "./src/components/loading.tsx",
+        "./src/components/login.tsx",
         "./src/components/media.tsx",
         "./src/components/nav.tsx",
         "./src/components/navigo.ts",
         "./src/components/page/index.ts",
         "./src/components/propgrid/index.tsx",
         "./src/components/resuploader.tsx",
-        "./src/components/rules/index.ts",
         "./src/components/schema/index.ts",
         "./src/components/searchbox.tsx",
         "./src/components/simple/index.ts",
@@ -2572,6 +2730,11 @@
         "./node_modules/@types/node/ts3.2/index.d.ts",
         "./node_modules/@types/react/index.d.ts"
       ],
+      "./src/components/login.tsx": [
+        "./node_modules/@types/node/base.d.ts",
+        "./node_modules/@types/node/ts3.2/index.d.ts",
+        "./src/tool/index.ts"
+      ],
       "./src/components/media.tsx": [
         "./node_modules/@types/classnames/index.d.ts",
         "./node_modules/@types/node/base.d.ts",
@@ -2585,16 +2748,15 @@
         "./node_modules/@types/node/ts3.2/index.d.ts",
         "./node_modules/@types/react/index.d.ts",
         "./node_modules/mobx/lib/mobx.d.ts",
+        "./src/auth/index.ts",
         "./src/components/fetcherrorview.tsx",
         "./src/components/loading.tsx",
+        "./src/components/login.tsx",
         "./src/components/navigo.ts",
         "./src/components/page/index.ts",
         "./src/components/page/page.tsx",
         "./src/components/reloadpage.tsx",
         "./src/components/simple/index.ts",
-        "./src/entry/changepassword.tsx",
-        "./src/entry/login.tsx",
-        "./src/entry/register.tsx",
         "./src/net/appbridge.ts",
         "./src/net/fetcherror.ts",
         "./src/net/index.ts",
@@ -2806,81 +2968,12 @@
         "./src/net/index.ts",
         "./src/tool/index.ts"
       ],
-      "./src/entry/changepassword.tsx": [
-        "./node_modules/@types/node/base.d.ts",
-        "./node_modules/@types/node/ts3.2/index.d.ts",
-        "./node_modules/@types/react/index.d.ts",
-        "./src/components/index.ts",
-        "./src/net/index.ts"
-      ],
-      "./src/entry/forget.tsx": [
-        "./node_modules/@types/node/base.d.ts",
-        "./node_modules/@types/node/ts3.2/index.d.ts",
-        "./node_modules/@types/react/index.d.ts",
-        "./src/components/index.ts"
-      ],
-      "./src/entry/index.ts": [
-        "./node_modules/@types/node/base.d.ts",
-        "./node_modules/@types/node/ts3.2/index.d.ts",
-        "./src/entry/meinfo.tsx"
-      ],
-      "./src/entry/login.tsx": [
-        "./node_modules/@types/node/base.d.ts",
-        "./node_modules/@types/node/ts3.2/index.d.ts",
-        "./node_modules/@types/react/index.d.ts",
-        "./src/components/index.ts",
-        "./src/entry/tools.tsx",
-        "./src/net/index.ts",
-        "./src/res/index.ts",
-        "./src/tool/user.ts"
-      ],
-      "./src/entry/meinfo.tsx": [
-        "./node_modules/@types/node/base.d.ts",
-        "./node_modules/@types/node/ts3.2/index.d.ts",
-        "./node_modules/@types/react/index.d.ts",
-        "./node_modules/mobx/lib/mobx.d.ts",
-        "./src/components/index.ts",
-        "./src/net/index.ts"
-      ],
-      "./src/entry/register.tsx": [
-        "./node_modules/@types/node/base.d.ts",
-        "./node_modules/@types/node/ts3.2/index.d.ts",
-        "./node_modules/@types/react/index.d.ts",
-        "./src/components/index.ts",
-        "./src/entry/tools.tsx",
-        "./src/net/index.ts",
-        "./src/res/index.ts",
-        "./src/vm/index.ts"
-      ],
-      "./src/entry/res/index.ts": [
-        "./node_modules/@types/node/base.d.ts",
-        "./node_modules/@types/node/ts3.2/index.d.ts",
-        "./src/entry/res/login.ts",
-        "./src/entry/res/register.ts"
-      ],
-      "./src/entry/res/login.ts": [
-        "./node_modules/@types/node/base.d.ts",
-        "./node_modules/@types/node/ts3.2/index.d.ts",
-        "./src/components/index.ts"
-      ],
-      "./src/entry/res/register.ts": [
-        "./node_modules/@types/node/base.d.ts",
-        "./node_modules/@types/node/ts3.2/index.d.ts",
-        "./src/components/index.ts"
-      ],
-      "./src/entry/tools.tsx": [
-        "./node_modules/@types/node/base.d.ts",
-        "./node_modules/@types/node/ts3.2/index.d.ts",
-        "./node_modules/@types/react/index.d.ts",
-        "./src/components/index.ts",
-        "./src/types/images.d.ts"
-      ],
       "./src/index.ts": [
         "./node_modules/@types/node/base.d.ts",
         "./node_modules/@types/node/ts3.2/index.d.ts",
         "./src/app/index.ts",
+        "./src/auth/index.ts",
         "./src/components/index.ts",
-        "./src/entry/index.ts",
         "./src/net/index.ts",
         "./src/tool/index.ts",
         "./src/uq/index.ts",
@@ -3053,6 +3146,7 @@
         "./src/tool/local.ts",
         "./src/tool/localdb.ts",
         "./src/tool/pageitems.ts",
+        "./src/tool/rules.ts",
         "./src/tool/uid.ts",
         "./src/tool/user.ts"
       ],
@@ -3075,6 +3169,10 @@
         "./node_modules/@types/node/base.d.ts",
         "./node_modules/@types/node/ts3.2/index.d.ts",
         "./node_modules/mobx/lib/mobx.d.ts"
+      ],
+      "./src/tool/rules.ts": [
+        "./node_modules/@types/node/base.d.ts",
+        "./node_modules/@types/node/ts3.2/index.d.ts"
       ],
       "./src/tool/uid.ts": [
         "./node_modules/@types/node/base.d.ts",
@@ -3926,6 +4024,60 @@
         "./src/app/cappbase.ts",
         "./src/vm/index.ts"
       ],
+      "./src/auth/clogin.tsx": [
+        "./src/components/index.ts",
+        "./src/tool/index.ts",
+        "./src/vm/index.ts"
+      ],
+      "./src/auth/createlogin.ts": [
+        "./src/components/index.ts"
+      ],
+      "./src/auth/index.ts": [
+        "./src/auth/clogin.tsx",
+        "./src/auth/createlogin.ts",
+        "./src/auth/meinfo.tsx"
+      ],
+      "./src/auth/meinfo.tsx": [
+        "./node_modules/@types/react/index.d.ts"
+      ],
+      "./src/auth/register/cregister.ts": [
+        "./src/vm/index.ts"
+      ],
+      "./src/auth/register/index.ts": [
+        "./src/auth/register/cregister.ts"
+      ],
+      "./src/auth/register/vpassword.tsx": [
+        "./src/auth/register/cregister.ts",
+        "./src/vm/index.ts"
+      ],
+      "./src/auth/register/vregister.tsx": [
+        "./src/auth/clogin.tsx",
+        "./src/vm/index.ts"
+      ],
+      "./src/auth/register/vstart.tsx": [
+        "./src/auth/register/cregister.ts",
+        "./src/vm/index.ts"
+      ],
+      "./src/auth/register/vsuccess.tsx": [
+        "./src/auth/register/cregister.ts",
+        "./src/vm/index.ts"
+      ],
+      "./src/auth/register/vverify.tsx": [
+        "./src/auth/register/cregister.ts",
+        "./src/vm/index.ts"
+      ],
+      "./src/auth/vchangepassword.tsx": [
+        "./src/auth/clogin.tsx",
+        "./src/vm/index.ts"
+      ],
+      "./src/auth/vlogin.tsx": [
+        "./src/auth/clogin.tsx",
+        "./src/vm/index.ts"
+      ],
+      "./src/auth/vlogout.tsx": [
+        "./src/auth/clogin.tsx",
+        "./src/vm/index.ts"
+      ],
       "./src/components/autohidetips.tsx": [
         "./node_modules/@types/react/index.d.ts",
         "./node_modules/mobx/lib/mobx.d.ts"
@@ -4149,13 +4301,13 @@
         "./src/components/image.tsx",
         "./src/components/list/index.tsx",
         "./src/components/loading.tsx",
+        "./src/components/login.tsx",
         "./src/components/media.tsx",
         "./src/components/nav.tsx",
         "./src/components/navigo.ts",
         "./src/components/page/index.ts",
         "./src/components/propgrid/index.tsx",
         "./src/components/resuploader.tsx",
-        "./src/components/rules/index.ts",
         "./src/components/schema/index.ts",
         "./src/components/searchbox.tsx",
         "./src/components/simple/index.ts",
@@ -4181,11 +4333,15 @@
       "./src/components/list/static.tsx": [
         "./src/components/list/base.tsx"
       ],
+      "./src/components/login.tsx": [
+        "./src/tool/index.ts"
+      ],
       "./src/components/media.tsx": [
         "./node_modules/@types/react/index.d.ts"
       ],
       "./src/components/nav.tsx": [
         "./node_modules/@types/react/index.d.ts",
+        "./src/components/login.tsx",
         "./src/components/navigo.ts",
         "./src/components/page/index.ts",
         "./src/net/fetcherror.ts",
@@ -4285,39 +4441,10 @@
         "./node_modules/@types/react/index.d.ts",
         "./src/tool/index.ts"
       ],
-      "./src/entry/changepassword.tsx": [
-        "./node_modules/@types/react/index.d.ts"
-      ],
-      "./src/entry/forget.tsx": [
-        "./node_modules/@types/react/index.d.ts"
-      ],
-      "./src/entry/index.ts": [
-        "./src/entry/meinfo.tsx"
-      ],
-      "./src/entry/login.tsx": [
-        "./node_modules/@types/react/index.d.ts",
-        "./src/tool/user.ts"
-      ],
-      "./src/entry/meinfo.tsx": [
-        "./node_modules/@types/react/index.d.ts"
-      ],
-      "./src/entry/register.tsx": [
-        "./src/vm/index.ts"
-      ],
-      "./src/entry/res/index.ts": [
-        "./src/entry/res/login.ts",
-        "./src/entry/res/register.ts"
-      ],
-      "./src/entry/res/login.ts": [
-        "./src/components/index.ts"
-      ],
-      "./src/entry/res/register.ts": [
-        "./src/components/index.ts"
-      ],
       "./src/index.ts": [
         "./src/app/index.ts",
+        "./src/auth/index.ts",
         "./src/components/index.ts",
-        "./src/entry/index.ts",
         "./src/net/index.ts",
         "./src/tool/index.ts",
         "./src/uq/index.ts",
@@ -4392,6 +4519,7 @@
         "./src/tool/local.ts",
         "./src/tool/localdb.ts",
         "./src/tool/pageitems.ts",
+        "./src/tool/rules.ts",
         "./src/tool/uid.ts",
         "./src/tool/user.ts"
       ],
@@ -4685,6 +4813,21 @@
       "./src/app/start.ts",
       "./src/app/startpage.tsx",
       "./src/app/vmain.tsx",
+      "./src/auth/clogin.tsx",
+      "./src/auth/createlogin.ts",
+      "./src/auth/index.ts",
+      "./src/auth/meinfo.tsx",
+      "./src/auth/register/cregister.ts",
+      "./src/auth/register/index.ts",
+      "./src/auth/register/vpassword.tsx",
+      "./src/auth/register/vregister.tsx",
+      "./src/auth/register/vstart.tsx",
+      "./src/auth/register/vsuccess.tsx",
+      "./src/auth/register/vverify.tsx",
+      "./src/auth/tools.tsx",
+      "./src/auth/vchangepassword.tsx",
+      "./src/auth/vlogin.tsx",
+      "./src/auth/vlogout.tsx",
       "./src/components/autohidetips.tsx",
       "./src/components/ax/index.tsx",
       "./src/components/callbacks.ts",
@@ -4740,6 +4883,7 @@
       "./src/components/list/selectable.tsx",
       "./src/components/list/static.tsx",
       "./src/components/loading.tsx",
+      "./src/components/login.tsx",
       "./src/components/media.tsx",
       "./src/components/nav.tsx",
       "./src/components/navigo.ts",
@@ -4771,16 +4915,6 @@
       "./src/components/simple/muted.tsx",
       "./src/components/simple/resuploader.tsx",
       "./src/components/usericon.tsx",
-      "./src/entry/changepassword.tsx",
-      "./src/entry/forget.tsx",
-      "./src/entry/index.ts",
-      "./src/entry/login.tsx",
-      "./src/entry/meinfo.tsx",
-      "./src/entry/register.tsx",
-      "./src/entry/res/index.ts",
-      "./src/entry/res/login.ts",
-      "./src/entry/res/register.ts",
-      "./src/entry/tools.tsx",
       "./src/index.ts",
       "./src/net/apibase.ts",
       "./src/net/appbridge.ts",
@@ -4813,6 +4947,7 @@
       "./src/tool/local.ts",
       "./src/tool/localdb.ts",
       "./src/tool/pageitems.ts",
+      "./src/tool/rules.ts",
       "./src/tool/uid.ts",
       "./src/tool/user.ts",
       "./src/types/images.d.ts",

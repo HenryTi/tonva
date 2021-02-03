@@ -179,6 +179,7 @@ var Navigo = /** @class */ (function () {
         if (this._usePushState) {
             to = (!absolute ? this._getRoot() + '/' : '') + path.replace(/^\/+/, '/');
             to = to.replace(/([^:])(\/{2,})/g, '$1/');
+            to = to.replace('/#test/', '/');
             this._historyUpdate({}, '', to);
             this.resolve();
         }
@@ -254,6 +255,9 @@ var Navigo = /** @class */ (function () {
         }
         var GETParameters = Navigo.extractGETParameters(current || this._cLoc());
         var onlyURL = Navigo.getOnlyURL(url, this._useHash, this._hash);
+        if (onlyURL.startsWith('/') === false) {
+            onlyURL = '/' + onlyURL;
+        }
         if (this._paused)
             return false;
         if (this._lastRouteResolved &&
@@ -450,12 +454,13 @@ var Navigo = /** @class */ (function () {
         }
     };
     Navigo.prototype._getRoot = function () {
-        if (this.root !== null)
-            return this.root;
-        var cLoc = this._cLoc();
-        var cLocRoot = cLoc.split('?')[0];
-        this.root = Navigo.root(cLocRoot, this._routes);
-        return this.root;
+        if (this.root === null) {
+            var cLoc = this._cLoc();
+            var cLocRoot = cLoc.split('?')[0];
+            this.root = Navigo.root(cLocRoot, this._routes);
+        }
+        var root = this.root.replace('#test', '');
+        return root;
     };
     Navigo.prototype._listen = function () {
         var _this = this;

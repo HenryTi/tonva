@@ -7,6 +7,7 @@ import '../css/va-form.css';
 import '../css/va.css';
 import '../css/animation.css';
 import { PageWebNav } from './page';
+import { Login } from './login';
 export declare type NavPage = (params: any) => Promise<void>;
 export interface Props {
     onLogined: (isUserLogin?: boolean) => Promise<void>;
@@ -104,16 +105,17 @@ export declare class Nav {
     private navLogout;
     private navRegister;
     private navForget;
-    private sysRoutes;
-    onSysNavRoutes(): void;
     navigateToLogin(): void;
     openSysPage(url: string): void;
     private navPageRoutes;
     private routeFromNavPage;
     onNavRoute(navPage: NavPage): void;
+    private doneSysRoutes;
+    private sysRoutes;
     onNavRoutes(navPageRoutes: {
         [url: string]: NavPage;
     }): void;
+    private internalOnNavRoutes;
     isWebNav: boolean;
     backIcon: JSX.Element;
     closeIcon: JSX.Element;
@@ -134,6 +136,10 @@ export declare class Nav {
     private getPrivacyContent;
     showPrivacyPage: () => void;
     private privacyPage;
+    private createLogin;
+    setCreateLogin(createLogin: () => Promise<Login>): void;
+    private login;
+    private getLogin;
     showLogin(callback?: (user: User) => Promise<void>, withBack?: boolean): Promise<void>;
     showLogout(callback?: () => Promise<void>): Promise<void>;
     showRegister(): Promise<void>;

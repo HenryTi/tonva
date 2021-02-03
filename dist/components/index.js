@@ -20,7 +20,6 @@ __exportStar(require("../res/res"), exports);
 __exportStar(require("./loading"), exports);
 __exportStar(require("./image"), exports);
 __exportStar(require("./resUploader"), exports);
-__exportStar(require("./rules"), exports);
 __exportStar(require("./list"), exports);
 __exportStar(require("./dropDownActions"), exports);
 __exportStar(require("./easyDate"), exports);
@@ -31,4 +30,5 @@ __exportStar(require("./searchBox"), exports);
 __exportStar(require("./userIcon"), exports);
 __exportStar(require("./ax"), exports);
 __exportStar(require("./autoHideTips"), exports);
+__exportStar(require("./login"), exports);
 //# sourceMappingURL=index.js.map
