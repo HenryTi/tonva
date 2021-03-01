@@ -1352,7 +1352,7 @@
         "affectsGlobalScope": false
       },
       "./src/app/cappbase.ts": {
-        "version": "d1d031972691aca19c8c4f60df9dc0d1e24a289981fffd4bacbd9fa7e3ffe587",
+        "version": "acb4f4ed46432ebb8f6e977541d356225a6c93779f0e9ed9e32db199ce15bc54",
         "signature": "36e749d8d049643a1daf1bdf017159baf1afaac8b7c2419582ec593d1fabf293",
         "affectsGlobalScope": false
       },

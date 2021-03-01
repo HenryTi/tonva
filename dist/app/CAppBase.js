@@ -109,7 +109,7 @@ var CAppBase = /** @class */ (function (_super) {
     };
     CAppBase.prototype.beforeStart = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var _a, appName, version, tvs, retErrors, predefinedUnit_1, user, result, appUnit, id, appUnitId, err_1;
+            var _a, appName, version, tvs, retErrors, predefinedUnit_1, user, uqAppId, result, appUnit, id, appUnitId, err_1;
             return __generator(this, function (_b) {
                 switch (_b.label) {
                     case 0:
@@ -126,7 +126,8 @@ var CAppBase = /** @class */ (function (_super) {
                         predefinedUnit_1 = net_1.appInFrame.predefinedUnit;
                         user = components_1.nav.user;
                         if (!(user !== undefined && user.id > 0)) return [3 /*break*/, 3];
-                        return [4 /*yield*/, centerApi_1.centerApi.userAppUnits(uq_1.UQsMan.value.id)];
+                        uqAppId = uq_1.UQsMan.value.id;
+                        return [4 /*yield*/, centerApi_1.centerApi.userAppUnits(uqAppId)];
                     case 2:
                         result = _b.sent();
                         this.appUnits = result;
@@ -153,8 +154,11 @@ var CAppBase = /** @class */ (function (_super) {
                             return [2 /*return*/, true];
                         switch (this.appUnits.length) {
                             case 0:
-                                this.showUnsupport(predefinedUnit_1);
-                                return [2 /*return*/, false];
+                                this.setAppUnit({});
+                                //this.showUnsupport(predefinedUnit);
+                                net_1.appInFrame.unit = predefinedUnit_1;
+                                //return false;
+                                break;
                             case 1:
                                 appUnit = this.appUnits[0];
                                 this.setAppUnit(appUnit);

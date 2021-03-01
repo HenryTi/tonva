@@ -99,7 +99,8 @@ export abstract class CAppBase extends Controller {
             let {predefinedUnit} = appInFrame;
             let {user} = nav;
             if (user !== undefined && user.id > 0) {
-				let result = await centerApi.userAppUnits(UQsMan.value.id);
+				let uqAppId = UQsMan.value.id;
+				let result = await centerApi.userAppUnits(uqAppId);
 				this.appUnits = result;
 				/*
 				// 老版本，只返回一个数组。新版本，返回两个数组。下面做两个数组的判断
@@ -123,8 +124,11 @@ export abstract class CAppBase extends Controller {
 				if (this.noUnit === true) return true;
                 switch (this.appUnits.length) {
                     case 0:
-                        this.showUnsupport(predefinedUnit);
-						return false;
+						this.setAppUnit({});
+                        //this.showUnsupport(predefinedUnit);
+						appInFrame.unit = predefinedUnit;
+						//return false;
+						break;
                     case 1:
 						let appUnit = this.appUnits[0];
 						this.setAppUnit(appUnit);
