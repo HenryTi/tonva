@@ -859,11 +859,11 @@ var Nav = /** @class */ (function () {
     };
     Nav.prototype.start = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var user, notLogined, err_2;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
+            var user, _a, notLogined, userPassword, ret, userName, password, logindUser, err_2;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
                     case 0:
-                        _a.trys.push([0, 7, 8, 9]);
+                        _b.trys.push([0, 10, 11, 12]);
                         window.onerror = this.windowOnError;
                         window.onunhandledrejection = this.windowOnUnhandledRejection;
                         //window.addEventListener('click', this.windowOnClick);
@@ -879,31 +879,48 @@ var Nav = /** @class */ (function () {
                         //nav.onSysNavRoutes();
                         this.startWait();
                         user = this.local.user.get();
-                        if (!(user === undefined)) return [3 /*break*/, 5];
-                        notLogined = this.navView.props.notLogined;
-                        if (!(notLogined !== undefined)) return [3 /*break*/, 2];
-                        return [4 /*yield*/, notLogined()];
+                        if (!(user === undefined)) return [3 /*break*/, 8];
+                        _a = this.navView.props, notLogined = _a.notLogined, userPassword = _a.userPassword;
+                        if (!userPassword) return [3 /*break*/, 3];
+                        return [4 /*yield*/, userPassword()];
                     case 1:
-                        _a.sent();
-                        return [3 /*break*/, 4];
-                    case 2: return [4 /*yield*/, exports.nav.showLogin(undefined)];
+                        ret = _b.sent();
+                        if (!ret) return [3 /*break*/, 3];
+                        userName = ret.user, password = ret.password;
+                        return [4 /*yield*/, net_2.userApi.login({
+                                user: userName,
+                                pwd: password,
+                                guest: exports.nav.guest,
+                            })];
+                    case 2:
+                        logindUser = _b.sent();
+                        user = logindUser;
+                        _b.label = 3;
                     case 3:
-                        _a.sent();
-                        _a.label = 4;
-                    case 4: return [2 /*return*/];
-                    case 5: return [4 /*yield*/, exports.nav.logined(user)];
+                        if (!(user === undefined)) return [3 /*break*/, 8];
+                        if (!(notLogined !== undefined)) return [3 /*break*/, 5];
+                        return [4 /*yield*/, notLogined()];
+                    case 4:
+                        _b.sent();
+                        return [3 /*break*/, 7];
+                    case 5: return [4 /*yield*/, exports.nav.showLogin(undefined)];
                     case 6:
-                        _a.sent();
-                        return [3 /*break*/, 9];
-                    case 7:
-                        err_2 = _a.sent();
+                        _b.sent();
+                        _b.label = 7;
+                    case 7: return [2 /*return*/];
+                    case 8: return [4 /*yield*/, exports.nav.logined(user)];
+                    case 9:
+                        _b.sent();
+                        return [3 /*break*/, 12];
+                    case 10:
+                        err_2 = _b.sent();
                         console.error(err_2);
                         debugger;
-                        return [3 /*break*/, 9];
-                    case 8:
+                        return [3 /*break*/, 12];
+                    case 11:
                         this.endWait();
                         return [7 /*endfinally*/];
-                    case 9: return [2 /*return*/];
+                    case 12: return [2 /*return*/];
                 }
             });
         });
@@ -932,10 +949,11 @@ var Nav = /** @class */ (function () {
     Nav.prototype.openSysPage = function (url) {
         var navPage = this.sysRoutes[url];
         if (navPage === undefined) {
-            alert(url + ' is not defined in sysRoutes');
-            return;
+            //alert(url + ' is not defined in sysRoutes');
+            return false;
         }
         navPage(undefined);
+        return true;
     };
     Nav.prototype.routeFromNavPage = function (navPage) {
         var _this = this;

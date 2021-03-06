@@ -12,6 +12,10 @@ export declare type NavPage = (params: any) => Promise<void>;
 export interface Props {
     onLogined: (isUserLogin?: boolean) => Promise<void>;
     notLogined?: () => Promise<void>;
+    userPassword?: () => Promise<{
+        user: string;
+        password: string;
+    }>;
 }
 export interface StackItem {
     key: number;
@@ -106,7 +110,7 @@ export declare class Nav {
     private navRegister;
     private navForget;
     navigateToLogin(): void;
-    openSysPage(url: string): void;
+    openSysPage(url: string): boolean;
     private navPageRoutes;
     private routeFromNavPage;
     onNavRoute(navPage: NavPage): void;
