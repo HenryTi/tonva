@@ -65,6 +65,7 @@ export interface NavSettings {
     oem?: string;
     loginTop?: JSX.Element;
     privacy?: string;
+    htmlTitle?: string;
 }
 export declare class Nav {
     private navView;
@@ -131,6 +132,7 @@ export declare class Nav {
     showAppView(isUserLogin?: boolean): Promise<void>;
     setGuest(guest: Guest): void;
     saveLocalUser(): void;
+    setUqRoles(uq: string, roles: string[]): void;
     loadMe(): Promise<void>;
     private internalLogined;
     logined(user: User, callback?: (user: User) => Promise<void>): Promise<void>;
@@ -168,8 +170,6 @@ export declare class Nav {
     back(confirm?: boolean): Promise<void>;
     regConfirmClose(confirmClose: () => Promise<boolean>): void;
     confirmBox(message?: string): boolean;
-    navToApp(url: string, unitId: number, apiId?: number, sheetType?: number, sheetId?: number): Promise<void>;
-    navToSite(url: string): void;
     get logs(): string[];
     log(msg: string): void;
     logMark(): void;

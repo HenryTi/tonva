@@ -12,6 +12,9 @@ export interface User extends Guest {
     name: string;
     nick?: string;
     icon?: string;
+    roles?: {
+        [uq: string]: string[];
+    };
 }
 export declare function decodeUserToken(token: string): User;
 export declare function decodeGuestToken(token: string): Guest;

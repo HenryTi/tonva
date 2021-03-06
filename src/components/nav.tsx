@@ -6,9 +6,9 @@ import {Page} from './page/page';
 import {netToken} from '../net/netToken';
 import FetchErrorView, { SystemNotifyPage } from './fetchErrorView';
 import {FetchError} from '../net/fetchError';
-import {appUrl, setAppInFrame, getExHash, getExHashPos} from '../net/appBridge';
+//import {appUrl, setAppInFrame, getExHash, getExHashPos} from '../net/appBridge';
 import {LocalData, env} from '../tool';
-import {guestApi, logoutApis, setCenterUrl, setCenterToken, appInFrame, host, resUrlFromHost, messageHub} from '../net';
+import {guestApi, logoutApis, setCenterUrl, setCenterToken, host, resUrlFromHost, messageHub} from '../net';
 import { resOptions } from '../res/res';
 import { Loading } from './loading';
 import { Navigo, RouteFunc, Hooks, NamedRoute } from './navigo';
@@ -30,20 +30,14 @@ const regEx = new RegExp('Android|webOS|iPhone|iPad|' +
     'i');
 const isMobile = regEx.test(navigator.userAgent);
 
-/*
-export const mobileHeaderStyle = isMobile? {
-    minHeight:  '3em'
-} : undefined;
-*/
-//const logo = require('../img/logo.svg');
 let logMark: number;
 const logs:string[] = [];
 export type NavPage = (params:any) => Promise<void>;
 
 export interface Props
 {
-    onLogined: (isUserLogin?:boolean) => Promise<void>;
-    notLogined?: () => Promise<void>;
+    onLogined: (isUserLogin?:boolean)=>Promise<void>;
+    notLogined?: ()=>Promise<void>;
 	userPassword?: () => Promise<{user:string; password:string}>;
 };
 let stackKey = 1;
@@ -144,7 +138,7 @@ export class NavView extends React.Component<Props, NavViewState> {
             }
         }
         this.setState({
-            fetchError: fetchError,
+            fetchError,
         });
     }
 
@@ -355,8 +349,10 @@ export class NavView extends React.Component<Props, NavViewState> {
                 </div>;
                 break;
         }
-        if (fetchError)
+        if (fetchError) {
             elError = <FetchErrorView clearError={this.clearError} {...fetchError} />;
+			++top;
+		}
         let test = nav.testing===true && 
 			<span className="cursor-pointer position-fixed" style={{top:0,left:'0.2rem',zIndex:90001}}>
                 <FA className="text-warning" name="info-circle" />
@@ -383,6 +379,7 @@ export interface NavSettings {
     oem?: string;
     loginTop?: JSX.Element;
     privacy?: string;
+	htmlTitle?: string;
 }
 
 export class Nav {
@@ -493,7 +490,19 @@ export class Nav {
 
     setSettings(settings?: NavSettings) {
         this.navSettings = settings;
-    }
+		let {htmlTitle} = settings;
+		if (htmlTitle) {
+			document.title = htmlTitle;
+		}
+		let html = document.getElementsByTagName('html');
+		let html0 = html[0];
+		if (html0) {
+			let version = html0?.getAttribute('data-version');
+			if (version) {
+				//appConfig.version = version;
+			}
+		}		
+	}
 
     get oem():string {
         return this.navSettings && this.navSettings.oem;
@@ -545,12 +554,14 @@ export class Nav {
 			env.isDevelopment = true;
 		}
 		await host.start(this.testing);
+		/*
 		let hash = document.location.hash;
 		if (hash !== undefined && hash.length > 0) {
 			let pos = getExHashPos();
 			if (pos < 0) pos = undefined;
 			this.hashParam = hash.substring(1, pos);
 		}
+		*/
 		let {url, ws, resHost} = host;
 		this.centerHost = url;
 		this.resUrl = resUrlFromHost( resHost);
@@ -566,36 +577,12 @@ export class Nav {
 			throw Error('guest can not be undefined');
 		}
 		nav.setGuest(guest);
-
-		let exHash = getExHash();
-		let appInFrame = setAppInFrame(exHash);
-		if (exHash !== undefined && window !== window.parent) {
-			// is in frame
-			if (appInFrame !== undefined) {
-				//this.ws = wsBridge;
-				console.log('this.ws = wsBridge in sub frame');
-				//nav.user = {id:0} as User;
-				if (window.self !== window.parent) {
-					window.parent.postMessage({type:'sub-frame-started', hash: appInFrame.hash}, '*');
-				}
-				// 下面这一句，已经移到 appBridge.ts 里面的 initSubWin，也就是响应从main frame获得user之后开始。
-				//await this.showAppView();
-				return;
-			}
-		}
-
-		let predefinedUnit = await this.loadPredefinedUnit();
-		appInFrame.predefinedUnit = predefinedUnit;
 	}
 
     async start() {
         try {
 			window.onerror = this.windowOnError;
             window.onunhandledrejection = this.windowOnUnhandledRejection;
-            //window.addEventListener('click', this.windowOnClick);
-            //window.addEventListener('mousemove', this.windowOnMouseMove);
-            //window.addEventListener('touchmove', this.windowOnMouseMove);
-            //window.addEventListener('scroll', this.windowOnScroll);
             if (isMobile === true) {
                 document.onselectstart = function() {return false;}
                 document.oncontextmenu = function() {return false;}
@@ -621,15 +608,18 @@ export class Nav {
 					}
 				}
 				if (user === undefined) {
+					let {notLogined} = this.navView.props;
 					if (notLogined !== undefined) {
 						await notLogined();
 					}
 					else {
 						await nav.showLogin(undefined);
+						//nav.navigateToLogin();
 					}
 					return;
 				}
             }
+
             await nav.logined(user);
         }
         catch (err) {
@@ -790,6 +780,15 @@ export class Nav {
         this.local.user.set(this.user);
     }
 
+	setUqRoles(uq:string, roles:string[]) {
+		let {roles:userRoles} = this.user;
+		if (!userRoles) {
+			this.user.roles = {};
+		}
+		this.user.roles[uq] = roles;
+		this.local.user.set(this.user);
+	}
+
     async loadMe() {
         let me = await userApi.me();
         this.user.icon = me.icon;
@@ -902,7 +901,7 @@ export class Nav {
 	}
 
     async logout(callback?:()=>Promise<void>) { //notShowLogin?:boolean) {
-        appInFrame.unit = undefined;
+        //appInFrame.unit = undefined;
         this.local.logoutClear();
         this.user = undefined; //{} as User;
         logoutApis();
@@ -975,7 +974,8 @@ export class Nav {
     }
     confirmBox(message?:string): boolean {
         return this.navView.confirmBox(message);
-    }
+	}
+	/*
     async navToApp(url: string, unitId: number, apiId?:number, sheetType?:number, sheetId?:number):Promise<void> {
         return new Promise<void>((resolve, reject) => {
             let sheet = this.centerHost.includes('http://localhost:') === true? 'sheet_debug':'sheet'
@@ -984,7 +984,7 @@ export class Nav {
                     appUrl(url, unitId, sheet, [apiId, sheetType, sheetId]);
             console.log('navToApp: %s', JSON.stringify(uh));
             nav.push(<article className='app-container'>
-                <span id={uh.hash} onClick={()=>this.back()} /*style={mobileHeaderStyle}*/>
+                <span id={uh.hash} onClick={()=>this.back()}/>
                     <i className="fa fa-arrow-left" />
                 </span>
                 {
@@ -1001,7 +1001,8 @@ export class Nav {
     navToSite(url: string) {
         // show in new window
         window.open(url);
-    }
+	}
+	*/
 
     get logs() {return logs};
     log(msg:string) {

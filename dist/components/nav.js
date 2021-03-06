@@ -95,7 +95,7 @@ var lodash_1 = __importDefault(require("lodash"));
 var page_1 = require("./page/page");
 var netToken_1 = require("../net/netToken");
 var fetchErrorView_1 = __importStar(require("./fetchErrorView"));
-var appBridge_1 = require("../net/appBridge");
+//import {appUrl, setAppInFrame, getExHash, getExHashPos} from '../net/appBridge';
 var tool_1 = require("../tool");
 var net_1 = require("../net");
 var res_1 = require("../res/res");
@@ -113,12 +113,6 @@ var regEx = new RegExp('Android|webOS|iPhone|iPad|' +
     'BlackBerry|Windows Phone|' +
     'Opera Mini|IEMobile|Mobile', 'i');
 var isMobile = regEx.test(navigator.userAgent);
-/*
-export const mobileHeaderStyle = isMobile? {
-    minHeight:  '3em'
-} : undefined;
-*/
-//const logo = require('../img/logo.svg');
 var logMark;
 var logs = [];
 ;
@@ -464,8 +458,10 @@ var NavView = /** @class */ (function (_super) {
                     React.createElement(loading_1.Loading, null));
                 break;
         }
-        if (fetchError)
+        if (fetchError) {
             elError = React.createElement(fetchErrorView_1.default, __assign({ clearError: this.clearError }, fetchError));
+            ++top;
+        }
         var test = exports.nav.testing === true &&
             React.createElement("span", { className: "cursor-pointer position-fixed", style: { top: 0, left: '0.2rem', zIndex: 90001 } },
                 React.createElement(simple_1.FA, { className: "text-warning", name: "info-circle" }));
@@ -772,6 +768,18 @@ var Nav = /** @class */ (function () {
     };
     Nav.prototype.setSettings = function (settings) {
         this.navSettings = settings;
+        var htmlTitle = settings.htmlTitle;
+        if (htmlTitle) {
+            document.title = htmlTitle;
+        }
+        var html = document.getElementsByTagName('html');
+        var html0 = html[0];
+        if (html0) {
+            var version = html0 === null || html0 === void 0 ? void 0 : html0.getAttribute('data-version');
+            if (version) {
+                //appConfig.version = version;
+            }
+        }
     };
     Object.defineProperty(Nav.prototype, "oem", {
         get: function () {
@@ -797,7 +805,7 @@ var Nav = /** @class */ (function () {
     };
     Nav.prototype.init = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var hash, pos, url, ws, resHost, guest, exHash, appInFrame, predefinedUnit;
+            var url, ws, resHost, guest;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -808,13 +816,6 @@ var Nav = /** @class */ (function () {
                         return [4 /*yield*/, net_1.host.start(this.testing)];
                     case 1:
                         _a.sent();
-                        hash = document.location.hash;
-                        if (hash !== undefined && hash.length > 0) {
-                            pos = appBridge_1.getExHashPos();
-                            if (pos < 0)
-                                pos = undefined;
-                            this.hashParam = hash.substring(1, pos);
-                        }
                         url = net_1.host.url, ws = net_1.host.ws, resHost = net_1.host.resHost;
                         this.centerHost = url;
                         this.resUrl = net_1.resUrlFromHost(resHost);
@@ -832,26 +833,6 @@ var Nav = /** @class */ (function () {
                             throw Error('guest can not be undefined');
                         }
                         exports.nav.setGuest(guest);
-                        exHash = appBridge_1.getExHash();
-                        appInFrame = appBridge_1.setAppInFrame(exHash);
-                        if (exHash !== undefined && window !== window.parent) {
-                            // is in frame
-                            if (appInFrame !== undefined) {
-                                //this.ws = wsBridge;
-                                console.log('this.ws = wsBridge in sub frame');
-                                //nav.user = {id:0} as User;
-                                if (window.self !== window.parent) {
-                                    window.parent.postMessage({ type: 'sub-frame-started', hash: appInFrame.hash }, '*');
-                                }
-                                // 下面这一句，已经移到 appBridge.ts 里面的 initSubWin，也就是响应从main frame获得user之后开始。
-                                //await this.showAppView();
-                                return [2 /*return*/];
-                            }
-                        }
-                        return [4 /*yield*/, this.loadPredefinedUnit()];
-                    case 4:
-                        predefinedUnit = _a.sent();
-                        appInFrame.predefinedUnit = predefinedUnit;
                         return [2 /*return*/];
                 }
             });
@@ -859,17 +840,13 @@ var Nav = /** @class */ (function () {
     };
     Nav.prototype.start = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var user, _a, notLogined, userPassword, ret, userName, password, logindUser, err_2;
+            var user, _a, notLogined, userPassword, ret, userName, password, logindUser, notLogined_1, err_2;
             return __generator(this, function (_b) {
                 switch (_b.label) {
                     case 0:
                         _b.trys.push([0, 10, 11, 12]);
                         window.onerror = this.windowOnError;
                         window.onunhandledrejection = this.windowOnUnhandledRejection;
-                        //window.addEventListener('click', this.windowOnClick);
-                        //window.addEventListener('mousemove', this.windowOnMouseMove);
-                        //window.addEventListener('touchmove', this.windowOnMouseMove);
-                        //window.addEventListener('scroll', this.windowOnScroll);
                         if (isMobile === true) {
                             document.onselectstart = function () { return false; };
                             document.oncontextmenu = function () { return false; };
@@ -898,8 +875,9 @@ var Nav = /** @class */ (function () {
                         _b.label = 3;
                     case 3:
                         if (!(user === undefined)) return [3 /*break*/, 8];
-                        if (!(notLogined !== undefined)) return [3 /*break*/, 5];
-                        return [4 /*yield*/, notLogined()];
+                        notLogined_1 = this.navView.props.notLogined;
+                        if (!(notLogined_1 !== undefined)) return [3 /*break*/, 5];
+                        return [4 /*yield*/, notLogined_1()];
                     case 4:
                         _b.sent();
                         return [3 /*break*/, 7];
@@ -1044,6 +1022,14 @@ var Nav = /** @class */ (function () {
         netToken_1.netToken.set(0, guest.token);
     };
     Nav.prototype.saveLocalUser = function () {
+        this.local.user.set(this.user);
+    };
+    Nav.prototype.setUqRoles = function (uq, roles) {
+        var userRoles = this.user.roles;
+        if (!userRoles) {
+            this.user.roles = {};
+        }
+        this.user.roles[uq] = roles;
         this.local.user.set(this.user);
     };
     Nav.prototype.loadMe = function () {
@@ -1214,7 +1200,7 @@ var Nav = /** @class */ (function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        net_1.appInFrame.unit = undefined;
+                        //appInFrame.unit = undefined;
                         this.local.logoutClear();
                         this.user = undefined; //{} as User;
                         net_1.logoutApis();
@@ -1340,32 +1326,35 @@ var Nav = /** @class */ (function () {
     Nav.prototype.confirmBox = function (message) {
         return this.navView.confirmBox(message);
     };
-    Nav.prototype.navToApp = function (url, unitId, apiId, sheetType, sheetId) {
-        return __awaiter(this, void 0, void 0, function () {
-            var _this = this;
-            return __generator(this, function (_a) {
-                return [2 /*return*/, new Promise(function (resolve, reject) {
-                        var sheet = _this.centerHost.includes('http://localhost:') === true ? 'sheet_debug' : 'sheet';
-                        var uh = sheetId === undefined ?
-                            appBridge_1.appUrl(url, unitId) :
-                            appBridge_1.appUrl(url, unitId, sheet, [apiId, sheetType, sheetId]);
-                        console.log('navToApp: %s', JSON.stringify(uh));
-                        exports.nav.push(React.createElement("article", { className: 'app-container' },
-                            React.createElement("span", { id: uh.hash, onClick: function () { return _this.back(); } },
-                                React.createElement("i", { className: "fa fa-arrow-left" })),
-                            // eslint-disable-next-line 
-                            React.createElement("iframe", { src: uh.url, title: String(sheetId) })), function () {
-                            resolve();
-                        });
-                    })];
-            });
-        });
-    };
-    Nav.prototype.navToSite = function (url) {
-        // show in new window
-        window.open(url);
-    };
     Object.defineProperty(Nav.prototype, "logs", {
+        /*
+        async navToApp(url: string, unitId: number, apiId?:number, sheetType?:number, sheetId?:number):Promise<void> {
+            return new Promise<void>((resolve, reject) => {
+                let sheet = this.centerHost.includes('http://localhost:') === true? 'sheet_debug':'sheet'
+                let uh = sheetId === undefined?
+                        appUrl(url, unitId) :
+                        appUrl(url, unitId, sheet, [apiId, sheetType, sheetId]);
+                console.log('navToApp: %s', JSON.stringify(uh));
+                nav.push(<article className='app-container'>
+                    <span id={uh.hash} onClick={()=>this.back()}/>
+                        <i className="fa fa-arrow-left" />
+                    </span>
+                    {
+                        // eslint-disable-next-line
+                        <iframe src={uh.url} title={String(sheetId)} />
+                    }
+                </article>,
+                ()=> {
+                    resolve();
+                });
+            });
+        }
+    
+        navToSite(url: string) {
+            // show in new window
+            window.open(url);
+        }
+        */
         get: function () { return logs; },
         enumerable: false,
         configurable: true

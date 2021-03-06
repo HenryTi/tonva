@@ -232,8 +232,8 @@
         "affectsGlobalScope": false
       },
       "./src/tool/user.ts": {
-        "version": "a3200efe96ff6a17f84d52108478ec4433fb5fbef1dc7347eb0bcf75703d64fc",
-        "signature": "4b91b022d70c43e6e62774b795a87009fe9fbb37ae77048fdd9a06058c52f243",
+        "version": "f9cf9bd2c48cc360fcfb81a4a4406c23bc7bc7c870842c057e70f9c3a29560b1",
+        "signature": "e98c18724fc180c2e02eeedf967694ec6f9e18d4ea995c2449801d28983f38cc",
         "affectsGlobalScope": false
       },
       "./src/tool/uid.ts": {
@@ -872,8 +872,8 @@
         "affectsGlobalScope": false
       },
       "./src/components/nav.tsx": {
-        "version": "54af17f82dfee75efa4cd5b710a95c35a5124c09f756816115ea820c48c5852e",
-        "signature": "890d1e529c1efe60a7a733ee1ce785e68ecc2567311a4e7c3435ab608cbcc7af",
+        "version": "78af1d081636096003010979cc14694236f71c7825f8c47585a0200ec3e115bb",
+        "signature": "185096a3d847fd0eda3d96fad1bbb900b107fdd6b32579d0647b987acaabed6b",
         "affectsGlobalScope": false
       },
       "./src/components/schema/schema.ts": {
@@ -2845,7 +2845,6 @@
         "./src/components/page/page.tsx",
         "./src/components/reloadpage.tsx",
         "./src/components/simple/index.ts",
-        "./src/net/appbridge.ts",
         "./src/net/fetcherror.ts",
         "./src/net/index.ts",
         "./src/net/nettoken.ts",
