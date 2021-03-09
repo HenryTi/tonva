@@ -336,6 +336,8 @@ var PageItems = /** @class */ (function () {
                     case 2:
                         ret = _a.sent();
                         this.loaded = true;
+                        if (!ret)
+                            ret = [];
                         len = ret.length;
                         if ((this.isFirst === true && len > this.firstSize) ||
                             (this.isFirst === false && len > this.pageSize)) {

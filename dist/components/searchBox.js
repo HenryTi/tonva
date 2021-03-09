@@ -24,12 +24,6 @@ var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (
 }) : function(o, v) {
     o["default"] = v;
 });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
 var __importStar = (this && this.__importStar) || function (mod) {
     if (mod && mod.__esModule) return mod;
     var result = {};
@@ -80,11 +74,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.SearchBox = void 0;
 var React = __importStar(require("react"));
 var classnames_1 = __importDefault(require("classnames"));
-var mobx_1 = require("mobx");
-/*
-export interface SearchBoxState {
-    disabled: boolean;
-}*/
 var SearchBox = /** @class */ (function (_super) {
     __extends(SearchBox, _super);
     function SearchBox() {
@@ -98,7 +87,7 @@ var SearchBox = /** @class */ (function (_super) {
                     _this.key = undefined;
             }
             if (_this.props.allowEmptySearch !== true) {
-                _this.disabled = !_this.key;
+                _this.input.disabled = !_this.key;
             }
         };
         _this.onSubmit = function (evt) { return __awaiter(_this, void 0, void 0, function () {
@@ -150,14 +139,11 @@ var SearchBox = /** @class */ (function (_super) {
                 label && React.createElement("div", { className: "input-group-addon align-self-center mr-2" }, label),
                 React.createElement("input", { ref: function (v) { return _this.input = v; }, onChange: this.onChange, type: "text", name: "key", onFocus: onFocus, className: classnames_1.default('form-control', inputClassName || 'border-primary'), placeholder: placeholder, defaultValue: this.props.initKey, maxLength: maxLength }),
                 React.createElement("div", { className: "input-group-append" },
-                    React.createElement("button", { className: "btn btn-primary", type: "submit", disabled: this.disabled },
+                    React.createElement("button", { className: "btn btn-primary", type: "submit", disabled: this.props.allowEmptySearch !== true },
                         React.createElement("i", { className: 'fa fa-search' }),
                         React.createElement("i", { className: "fa" }),
                         buttonText))));
     };
-    __decorate([
-        mobx_1.observable
-    ], SearchBox.prototype, "disabled", void 0);
     return SearchBox;
 }(React.Component));
 exports.SearchBox = SearchBox;

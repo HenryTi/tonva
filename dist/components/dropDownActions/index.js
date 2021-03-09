@@ -75,7 +75,11 @@ var DropdownActions = /** @class */ (function (_super) {
         var _a = this.props, icon = _a.icon, actions = _a.actions, isRight = _a.isRight, className = _a.className, itemIconClass = _a.itemIconClass, itemCaptionClass = _a.itemCaptionClass;
         if (isRight === undefined)
             isRight = true;
-        var hasIcon = actions.some(function (v) { return v.icon !== undefined; });
+        var hasIcon = actions.some(function (v) {
+            if (!v)
+                return false;
+            return v.icon !== undefined;
+        });
         var dropdownOpen = this.state.dropdownOpen;
         //isOpen={this.state.dropdownOpen} toggle={this.toggle}
         var cn = className || 'cursor-pointer dropdown-toggle btn btn-sm';
