@@ -122,15 +122,13 @@ var VStart = /** @class */ (function (_super) {
         };
     };
     VStart.prototype.header = function () { return this.pageCaption; };
-    VStart.prototype.footer = function () {
-        return react_1.default.createElement("div", { className: "text-center" },
-            react_1.default.createElement(components_1.Ax, { href: "/login", className: "text-primary" }, "\u5DF2\u6709\u8D26\u53F7\uFF0C\u76F4\u63A5\u767B\u5F55"));
-    };
     VStart.prototype.content = function () {
         return react_1.default.createElement("div", { className: "w-max-20c my-5 py-5", style: { marginLeft: 'auto', marginRight: 'auto' } },
             tools_1.tonvaTop(),
             react_1.default.createElement("div", { className: "h-3c" }),
             react_1.default.createElement(components_1.Form, { schema: this.schema, uiSchema: this.uiSchema, onButtonClick: this.onSubmit, onEnter: this.onEnter, requiredFlag: false }),
+            react_1.default.createElement("div", { className: "text-center" },
+                react_1.default.createElement(components_1.Ax, { href: "/login", className: "btn btn-link" }, "\u5DF2\u6709\u8D26\u53F7\uFF0C\u76F4\u63A5\u767B\u5F55")),
             components_1.nav.privacyEntry());
     };
     return VStart;

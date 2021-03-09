@@ -50,6 +50,7 @@ var book_1 = require("./book");
 var history_1 = require("./history");
 var map_1 = require("./map");
 var pending_1 = require("./pending");
+var tool_1 = require("../tool");
 var reactBoxId_1 = require("./tuid/reactBoxId");
 var tag_1 = require("./tag/tag");
 var enum_1 = require("./enum");
@@ -133,7 +134,7 @@ var UqMan = /** @class */ (function () {
         if (this.name === '$$$/$unitx') {
             // 这里假定，点击home link之后，已经设置unit了
             // 调用 UnitxApi会自动搜索绑定 unitx service
-            this.uqApi = new net_1.UnitxApi(net_1.appInFrame.unit);
+            this.uqApi = new net_1.UnitxApi(tool_1.env.unit);
         }
         else {
             var appOwner = uqs.appOwner, appName = uqs.appName;

@@ -72,7 +72,6 @@ exports.VStartError = exports.VErrorsPage = exports.VUnitSelect = exports.VUnsup
 var React = __importStar(require("react"));
 var components_1 = require("../components");
 var vm_1 = require("../vm");
-var net_1 = require("../net");
 var uq_1 = require("../uq");
 /*
 export class VAppMain extends VPage<CMainBase> {
@@ -182,7 +181,7 @@ var VUnitSelect = /** @class */ (function (_super) {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        net_1.appInFrame.unit = appUnit.id; // 25;
+                        //appInFrame.unit = appUnit.id; // 25;
                         this.controller.setAppUnit(appUnit);
                         return [4 /*yield*/, this.controller.start()];
                     case 1:

@@ -8,7 +8,6 @@ export declare abstract class VStart<T extends CRegBase> extends VPage<T> {
     abstract get pageCaption(): string;
     init(): void;
     header(): string;
-    footer(): JSX.Element;
     content(): JSX.Element;
     private onSubmit;
     private onEnter;

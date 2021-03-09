@@ -135,12 +135,6 @@ var VLogin = /** @class */ (function (_super) {
         }
         return false;
     };
-    VLogin.prototype.footer = function () {
-        return React.createElement("div", { className: "d-block" },
-            React.createElement("div", { className: 'text-center' },
-                React.createElement(components_1.Ax, { href: "/register", className: "btn btn-link", style: { margin: '0px auto' } }, "\u6CE8\u518C\u8D26\u53F7")),
-            components_1.nav.privacyEntry());
-    };
     VLogin.prototype.content = function () {
         return React.createElement("div", { className: "d-flex p-5 flex-column justify-content-center align-items-center" },
             React.createElement("div", { className: "flex-fill" }),
@@ -148,7 +142,10 @@ var VLogin = /** @class */ (function (_super) {
                 tools_1.tonvaTop(),
                 React.createElement("div", { className: "h-2c" }),
                 React.createElement(components_1.Form, { schema: schema, uiSchema: this.uiSchema, onButtonClick: this.onSubmit, onEnter: this.onEnter, requiredFlag: false }),
-                React.createElement(components_1.Ax, { className: "btn btn-link btn-block", href: "/forget" }, "\u5FD8\u8BB0\u5BC6\u7801")),
+                React.createElement("div", { className: "text-center" },
+                    React.createElement(components_1.Ax, { className: "btn btn-link", href: "/forget" }, "\u5FD8\u8BB0\u5BC6\u7801"),
+                    React.createElement(components_1.Ax, { href: "/register", className: "btn btn-link" }, "\u6CE8\u518C\u8D26\u53F7")),
+                components_1.nav.privacyEntry()),
             React.createElement("div", { className: "flex-fill" }),
             React.createElement("div", { className: "flex-fill" }));
     };

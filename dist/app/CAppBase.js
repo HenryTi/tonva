@@ -53,7 +53,6 @@ exports.CAppBase = void 0;
 var components_1 = require("../components");
 var vm_1 = require("../vm");
 var uq_1 = require("../uq");
-var net_1 = require("../net");
 var centerApi_1 = require("./centerApi");
 var vMain_1 = require("./vMain");
 var CAppBase = /** @class */ (function (_super) {
@@ -109,7 +108,7 @@ var CAppBase = /** @class */ (function (_super) {
     };
     CAppBase.prototype.beforeStart = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var _a, appName, version, tvs, retErrors, predefinedUnit_1, user, uqAppId, result, appUnit, id, appUnitId, err_1;
+            var _a, appName, version, tvs, retErrors, user, uqAppId, result, err_1;
             return __generator(this, function (_b) {
                 switch (_b.label) {
                     case 0:
@@ -123,7 +122,6 @@ var CAppBase = /** @class */ (function (_super) {
                         _b.sent();
                         this._uqs = uq_1.UQsMan._uqs;
                         retErrors = uq_1.UQsMan.errors;
-                        predefinedUnit_1 = net_1.appInFrame.predefinedUnit;
                         user = components_1.nav.user;
                         if (!(user !== undefined && user.id > 0)) return [3 /*break*/, 3];
                         uqAppId = uq_1.UQsMan.value.id;
@@ -152,33 +150,6 @@ var CAppBase = /** @class */ (function (_super) {
                         */
                         if (this.noUnit === true)
                             return [2 /*return*/, true];
-                        switch (this.appUnits.length) {
-                            case 0:
-                                this.setAppUnit({});
-                                //this.showUnsupport(predefinedUnit);
-                                net_1.appInFrame.unit = predefinedUnit_1;
-                                //return false;
-                                break;
-                            case 1:
-                                appUnit = this.appUnits[0];
-                                this.setAppUnit(appUnit);
-                                id = appUnit.id;
-                                appUnitId = id;
-                                if (appUnitId === undefined || appUnitId < 0 ||
-                                    (predefinedUnit_1 !== undefined && appUnitId !== predefinedUnit_1)) {
-                                    this.showUnsupport(predefinedUnit_1);
-                                    return [2 /*return*/, false];
-                                }
-                                net_1.appInFrame.unit = appUnitId;
-                                break;
-                            default:
-                                if (predefinedUnit_1 > 0 && this.appUnits.find(function (v) { return v.id === predefinedUnit_1; }) !== undefined) {
-                                    net_1.appInFrame.unit = predefinedUnit_1;
-                                    break;
-                                }
-                                this.openVPage(vMain_1.VUnitSelect);
-                                return [2 /*return*/, false];
-                        }
                         _b.label = 3;
                     case 3:
                         if (retErrors !== undefined) {

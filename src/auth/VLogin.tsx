@@ -1,7 +1,6 @@
 import * as React from 'react';
 import {nav, Form, Schema, UiSchema, UiTextItem, UiPasswordItem, Context, UiButton, StringSchema, Ax} from '../components';
 import { tonvaTop, getSender } from './tools';
-import { User } from '../tool';
 import { CLogin } from './CLogin';
 import { VPage } from '../vm';
 
@@ -55,17 +54,6 @@ export class VLogin extends VPage<CLogin> {
 		return false;
 	}
 
-	footer() {
-        return <div className="d-block">
-            <div className='text-center'>
-                <Ax href="/register" className="btn btn-link" style={{margin:'0px auto'}}>
-                    注册账号
-                </Ax>
-            </div>
-            {nav.privacyEntry()}
-        </div>;
-	}
-
 	content() {
         return <div className="d-flex p-5 flex-column justify-content-center align-items-center">
 			<div className="flex-fill" />
@@ -76,10 +64,15 @@ export class VLogin extends VPage<CLogin> {
 					onButtonClick={this.onSubmit} 
 					onEnter={this.onEnter}
 					requiredFlag={false} />
-				{/*onClick={() => this.clickForget()}*/}
-				<Ax className="btn btn-link btn-block" href="/forget">
-					忘记密码
-				</Ax>
+				<div className="text-center">
+					<Ax className="btn btn-link" href="/forget">
+						忘记密码
+					</Ax>
+					<Ax href="/register" className="btn btn-link">
+						注册账号
+					</Ax>
+				</div>
+				{nav.privacyEntry()}
 			</div>
 			<div className="flex-fill" />
 			<div className="flex-fill" />

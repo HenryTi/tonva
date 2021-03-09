@@ -39,13 +39,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.bridgeCenterApi = exports.appUq = exports.buildAppUq = exports.appUrl = exports.getExHash = exports.getExHashPos = exports.setAppInFrame = exports.isBridged = exports.appInFrame = exports.logoutUqTokens = void 0;
+exports.bridgeCenterApi = exports.appUq = exports.buildAppUq = exports.isBridged = exports.logoutUqTokens = void 0;
 var lodash_1 = __importDefault(require("lodash"));
 var components_1 = require("../components");
 var uid_1 = require("../tool/uid");
 var uqApi_1 = require("./uqApi");
 var wsChannel_1 = require("./wsChannel");
 var host_1 = require("./host");
+var tool_1 = require("../tool");
 var uqTokens = {};
 function logoutUqTokens() {
     for (var i in uqTokens) {
@@ -53,20 +54,27 @@ function logoutUqTokens() {
     }
 }
 exports.logoutUqTokens = logoutUqTokens;
-var appsInFrame = {};
-var AppInFrameClass = /** @class */ (function () {
-    function AppInFrameClass() {
-    }
-    Object.defineProperty(AppInFrameClass.prototype, "unit", {
-        get: function () { return this._unit; } // unit id
-        ,
-        set: function (val) { this._unit = val; },
-        enumerable: false,
-        configurable: true
-    });
-    return AppInFrameClass;
-}());
-exports.appInFrame = new AppInFrameClass();
+/*
+export interface AppInFrame {
+    hash: string;
+    unit: number;       // unit id
+    page?: string;
+    param?: string[];
+    predefinedUnit?: number;  // 比如像Cart这样的应用，直接让用户访问的，就需要在unit.json里面定义unitName
+}
+const appsInFrame:{[key:string]:AppInFrame} = {};
+
+class AppInFrameClass implements AppInFrame {
+    hash: string;
+    private _unit: number;
+    get unit(): number {return this._unit;}       // unit id
+    set unit(val:number) { this._unit=val;}
+    page?: string;
+    param?: string[];
+}
+
+export let appInFrame:AppInFrame = new AppInFrameClass();
+*/
 /* {
     hash: undefined,
     get unit():number {return } undefined, //debugUnitId,
@@ -183,15 +191,11 @@ function initSubWin(message) {
 }
 function onReceiveAppApiMessage(hash, apiName) {
     return __awaiter(this, void 0, void 0, function () {
-        var appInFrame, unit, predefinedUnit, parts, param, ret, db, url, token;
+        var unit, parts, param, ret, db, url, token;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    appInFrame = appsInFrame[hash];
-                    if (appInFrame === undefined)
-                        return [2 /*return*/, { name: apiName, db: undefined, url: undefined, token: undefined }];
-                    unit = appInFrame.unit, predefinedUnit = appInFrame.predefinedUnit;
-                    unit = unit || predefinedUnit;
+                    unit = tool_1.env.unit;
                     if (!unit) {
                         console.error('no unit defined in unit.json or in index.html, or not logined in', unit);
                     }
@@ -231,72 +235,6 @@ function onAppApiReturn(message) {
         });
     });
 }
-function setAppInFrame(appHash) {
-    if (appHash) {
-        var parts = appHash.split('-');
-        var len = parts.length;
-        if (len > 0) {
-            var p = 1;
-            exports.appInFrame.hash = parts[p++];
-            if (len > 0)
-                exports.appInFrame.unit = Number(parts[p++]);
-            if (len > 1)
-                exports.appInFrame.page = parts[p++];
-            if (len > 2)
-                exports.appInFrame.param = parts.slice(p++);
-        }
-    }
-    return exports.appInFrame;
-}
-exports.setAppInFrame = setAppInFrame;
-function getExHashPos() {
-    var hash = document.location.hash;
-    if (hash !== undefined && hash.length > 0) {
-        var pos = hash.lastIndexOf('#tv-');
-        if (pos < 0)
-            pos = hash.lastIndexOf('#tvdebug-');
-        return pos;
-    }
-    return -1;
-}
-exports.getExHashPos = getExHashPos;
-function getExHash() {
-    var pos = getExHashPos();
-    if (pos < 0)
-        return undefined;
-    return document.location.hash.substring(pos);
-}
-exports.getExHash = getExHash;
-function appUrl(url, unitId, page, param) {
-    var u;
-    for (;;) {
-        u = uid_1.uid();
-        var a = appsInFrame[u];
-        if (a === undefined) {
-            appsInFrame[u] = { hash: u, unit: unitId };
-            break;
-        }
-    }
-    url += '#tv-' + u + '-' + unitId;
-    if (page !== undefined) {
-        url += '-' + page;
-        if (param !== undefined) {
-            for (var i = 0; i < param.length; i++) {
-                url += '-' + param[i];
-            }
-        }
-    }
-    return { url: url, hash: u };
-}
-exports.appUrl = appUrl;
-function getUnit() {
-    var unit = exports.appInFrame.unit, predefinedUnit = exports.appInFrame.predefinedUnit;
-    var realUnit = unit || predefinedUnit;
-    if (realUnit === undefined) {
-        throw new Error('no unit defined in unit.json or not logined in');
-    }
-    return realUnit;
-}
 var uqTokenActions = {};
 function buildAppUq(uq, uqOwner, uqName, appOwner, appName) {
     return __awaiter(this, void 0, void 0, function () {
@@ -306,7 +244,7 @@ function buildAppUq(uq, uqOwner, uqName, appOwner, appName) {
             switch (_a.label) {
                 case 0:
                     if (!!isBridged()) return [3 /*break*/, 2];
-                    unit = getUnit();
+                    unit = tool_1.env.unit;
                     return [4 /*yield*/, uqApi_1.uqTokenApi.uq({ unit: unit, uqOwner: uqOwner, uqName: uqName, appOwner: appOwner, appName: appName })];
                 case 1:
                     uqToken = _a.sent();
@@ -319,7 +257,6 @@ function buildAppUq(uq, uqOwner, uqName, appOwner, appName) {
                     uqTokens[uq] = uqToken;
                     return [2 /*return*/, uqToken];
                 case 2:
-                    console.log("**** before buildAppUq ****", exports.appInFrame);
                     bp = uqTokenActions[uq];
                     if (bp !== undefined)
                         return [2 /*return*/];
@@ -339,7 +276,7 @@ function buildAppUq(uq, uqOwner, uqName, appOwner, appName) {
                                                     token: token,
                                                 };
                                                 uqTokenActions[uq] = undefined;
-                                                console.log("**** after buildAppUq ****", exports.appInFrame);
+                                                //console.log("**** after buildAppUq ****", appInFrame);
                                                 resolve();
                                                 return [2 /*return*/];
                                         }
@@ -350,7 +287,6 @@ function buildAppUq(uq, uqOwner, uqName, appOwner, appName) {
                             (window.opener || window.parent).postMessage({
                                 type: 'app-api',
                                 apiName: uq,
-                                hash: exports.appInFrame.hash,
                             }, "*");
                         })];
             }

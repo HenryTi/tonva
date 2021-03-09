@@ -496,9 +496,14 @@
         "signature": "cd953c09fa2acb78928346b069aa472375599c048d50e9f27e32c34abe5efd55",
         "affectsGlobalScope": false
       },
+      "./src/tool/62.ts": {
+        "version": "d93dbcb8c67afb2790b286b5b2954b47f734231608bdb057c665ffd9364d373b",
+        "signature": "6a5b019fde6c1b4b517505787b3c989c8ff9214b21302ae1c73f1f23ebc899b3",
+        "affectsGlobalScope": false
+      },
       "./src/tool/env.ts": {
-        "version": "00c620f29b6c4e51241a88fdf22486da279f6ef140a8e0cc944c7cc8b006c0af",
-        "signature": "806d66617d3f051a2c5c4af6e6d6ec52662666eb33a5a05eb1866af7f2c6dbc6",
+        "version": "c92c13d36a7cb4c952b8a167549b839c7185d278a2362e3439d030aeaa474992",
+        "signature": "b28a5ed9a8984eb1497de1876c18f1a5b0ecdb86e998223d0f047f5e53c4b38a",
         "affectsGlobalScope": false
       },
       "./src/tool/local.ts": {
@@ -807,8 +812,8 @@
         "affectsGlobalScope": false
       },
       "./src/auth/vlogin.tsx": {
-        "version": "0b4ec5ce6f69999b7cffb24c421dc027a46672ec8b13fcb3d62247c47c874269",
-        "signature": "a8fa781c5747bbea212f21f1128a6f0e2d1d44a783e849d92cd5e852cd71d04d",
+        "version": "ca78bb1f004221b3d236386363b26cf5287b56f6a8d8f5d041b7aad93505820d",
+        "signature": "9f1fca5836c225d4b9464d8eb2ada87bd93a8b3bdf309392161872204dd524bd",
         "affectsGlobalScope": false
       },
       "./src/auth/vchangepassword.tsx": {
@@ -817,8 +822,8 @@
         "affectsGlobalScope": false
       },
       "./src/auth/register/vstart.tsx": {
-        "version": "d989cb05dee044609920023f186ccb55b8e97e198e49b6aff17cd73de6754fb4",
-        "signature": "d74f3ab8c98a38122c2a51db4b9462015f57a8637ba58b9371c1d2ac7f337e75",
+        "version": "eb9183cdbdb5882b1e1703c95f32367a9672497110b04c261bd500d35b22aedd",
+        "signature": "4be36a29e5c91f3f4329ea7e534474ec77147b86913406f941b316bef926f496",
         "affectsGlobalScope": false
       },
       "./src/auth/register/vverify.tsx": {
@@ -1197,8 +1202,8 @@
         "affectsGlobalScope": false
       },
       "./src/net/appbridge.ts": {
-        "version": "3b4614b49b6f7331ff23485373282ec5467ac25dfb2cc842fb69834e40b29088",
-        "signature": "a0699e369afedccc1ad48136d84ff225c4fc8944feee0b3071d6eb74edab0b87",
+        "version": "a51dd9845d3efb51726aee048f579acf364f4b2f53db7b954b13a8f1478420b7",
+        "signature": "2b3cd527a22338558ecf49d98b7a0db7147f6b1a323c784a9e7fecc2db02b085",
         "affectsGlobalScope": false
       },
       "./src/net/caller.ts": {
@@ -1222,8 +1227,8 @@
         "affectsGlobalScope": false
       },
       "./src/net/index.ts": {
-        "version": "aef10a679d9f799ce0cd011b7c92331e87569bd43089e933dd81f19ceb5b8c82",
-        "signature": "abc7761e4688a63c15a96f5cd33b1946799a6353b6d8b48b378dd542f2d17f89",
+        "version": "0f321cbf1b78be1e4938f390a9a62034f13ea96760644694f0c395c6dc9e74f3",
+        "signature": "69d1b1e52ad3b560c1509bb18fd93e0280b9f24402f387d13eea18139f6ad628",
         "affectsGlobalScope": false
       },
       "./src/auth/meinfo.tsx": {
@@ -1332,7 +1337,7 @@
         "affectsGlobalScope": false
       },
       "./src/uq/uqman.ts": {
-        "version": "6ead376f3a0c8c65181a20970033729301e44075a77a2ecb3d46f667c02262d9",
+        "version": "c50fc5a81061a5178cd37b59fc4203814312965e5a1bc4fb9fd9905491b861ff",
         "signature": "4d79545745128623191db6352524590da4fdff0e742bf9743cfc4c2143a431b1",
         "affectsGlobalScope": false
       },
@@ -1342,12 +1347,12 @@
         "affectsGlobalScope": false
       },
       "./src/app/vmain.tsx": {
-        "version": "0cf9cf033126f7cf70aa6e612aefafe605eb9d430422383af934111c86520ac3",
+        "version": "0ba39b03d15824d01f7605ebb981d63e29d0d4fc6f6167d14a2b98dd64070e02",
         "signature": "fa93eb1c42ca45d7a6098921cf1d78b8d26e7b69d26e5c5e1dba36acbcaaae83",
         "affectsGlobalScope": false
       },
       "./src/app/cappbase.ts": {
-        "version": "acb4f4ed46432ebb8f6e977541d356225a6c93779f0e9ed9e32db199ce15bc54",
+        "version": "ea5aca64701e623519b59b5d7ffca81b18e10d79c283d9477e00969b1ef48357",
         "signature": "36e749d8d049643a1daf1bdf017159baf1afaac8b7c2419582ec593d1fabf293",
         "affectsGlobalScope": false
       },
@@ -2147,7 +2152,6 @@
         "./src/app/centerapi.ts",
         "./src/app/vmain.tsx",
         "./src/components/index.ts",
-        "./src/net/index.ts",
         "./src/uq/index.ts",
         "./src/vm/index.ts"
       ],
@@ -2189,7 +2193,6 @@
         "./node_modules/@types/react/index.d.ts",
         "./src/app/cappbase.ts",
         "./src/components/index.ts",
-        "./src/net/index.ts",
         "./src/uq/index.ts",
         "./src/vm/index.ts"
       ],
@@ -2303,7 +2306,6 @@
         "./src/auth/clogin.tsx",
         "./src/auth/tools.tsx",
         "./src/components/index.ts",
-        "./src/tool/index.ts",
         "./src/vm/index.ts"
       ],
       "./src/auth/vlogout.tsx": [
@@ -3078,6 +3080,7 @@
         "./src/net/host.ts",
         "./src/net/uqapi.ts",
         "./src/net/wschannel.ts",
+        "./src/tool/index.ts",
         "./src/tool/uid.ts"
       ],
       "./src/net/caller.ts": [
@@ -3202,6 +3205,10 @@
         "./node_modules/@types/node/base.d.ts",
         "./node_modules/@types/node/ts3.2/index.d.ts"
       ],
+      "./src/tool/62.ts": [
+        "./node_modules/@types/node/base.d.ts",
+        "./node_modules/@types/node/ts3.2/index.d.ts"
+      ],
       "./src/tool/cacheids.ts": [
         "./node_modules/@types/node/base.d.ts",
         "./node_modules/@types/node/ts3.2/index.d.ts",
@@ -3214,6 +3221,7 @@
       "./src/tool/env.ts": [
         "./node_modules/@types/node/base.d.ts",
         "./node_modules/@types/node/ts3.2/index.d.ts",
+        "./src/tool/62.ts",
         "./src/tool/localdb.ts"
       ],
       "./src/tool/getobjpropignorecase.ts": [
@@ -5075,6 +5083,7 @@
       "./src/res/index.ts",
       "./src/res/listres.ts",
       "./src/res/res.ts",
+      "./src/tool/62.ts",
       "./src/tool/cacheids.ts",
       "./src/tool/date.ts",
       "./src/tool/env.ts",

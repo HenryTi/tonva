@@ -28,11 +28,6 @@ export abstract class VStart<T extends CRegBase> extends VPage<T> {
 	}
 
 	header() {return this.pageCaption;}
-	footer() {
-		return <div className="text-center">
-			<Ax href="/login" className="text-primary">已有账号，直接登录</Ax>
-		</div>;
-	}
 
     content():JSX.Element {
         return <div className="w-max-20c my-5 py-5"
@@ -43,6 +38,9 @@ export abstract class VStart<T extends CRegBase> extends VPage<T> {
 				onButtonClick={this.onSubmit}
 				onEnter={this.onEnter} 
 				requiredFlag={false} />
+			<div className="text-center">
+				<Ax href="/login" className="btn btn-link">已有账号，直接登录</Ax>
+			</div>
 			{nav.privacyEntry()}
 		</div>;
     }
