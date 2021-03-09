@@ -108,7 +108,8 @@ require("../css/animation.css");
 var simple_1 = require("./simple");
 var net_2 = require("../net");
 var reloadPage_1 = require("./reloadPage");
-var auth_1 = require("../auth");
+var login_1 = require("./login");
+//import { createLogin } from '../auth';
 var regEx = new RegExp('Android|webOS|iPhone|iPad|' +
     'BlackBerry|Windows Phone|' +
     'Opera Mini|IEMobile|Mobile', 'i');
@@ -571,7 +572,7 @@ var Nav = /** @class */ (function () {
                 return [2 /*return*/];
             });
         }); };
-        this.createLogin = auth_1.createLogin;
+        this.createLogin = login_1.createLogin;
         this.reload = function () { return __awaiter(_this, void 0, void 0, function () {
             var waiting, registration, plus, webview, webView;
             return __generator(this, function (_a) {
@@ -1168,29 +1169,17 @@ var Nav = /** @class */ (function () {
     };
     Nav.prototype.showRegister = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var login;
             return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.getLogin()];
-                    case 1:
-                        login = _a.sent();
-                        login.showRegister();
-                        return [2 /*return*/];
-                }
+                login_1.showRegister();
+                return [2 /*return*/];
             });
         });
     };
     Nav.prototype.showForget = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var login;
             return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.getLogin()];
-                    case 1:
-                        login = _a.sent();
-                        login.showForget();
-                        return [2 /*return*/];
-                }
+                login_1.showForget();
+                return [2 /*return*/];
             });
         });
     };

@@ -58,7 +58,6 @@ var VLogin_1 = require("./VLogin");
 var net_1 = require("../net");
 var VChangePassword_1 = require("./VChangePassword");
 var register_1 = require("./register");
-var register_2 = require("./register");
 var CLogin = /** @class */ (function (_super) {
     __extends(CLogin, _super);
     function CLogin() {
@@ -133,7 +132,7 @@ var CLogin = /** @class */ (function (_super) {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        cForget = new register_2.CForget(this.res);
+                        cForget = new register_1.CForget(this.res);
                         return [4 /*yield*/, cForget.start()];
                     case 1:
                         _a.sent();

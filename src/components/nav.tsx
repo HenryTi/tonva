@@ -21,8 +21,8 @@ import { FA } from './simple';
 import { userApi } from '../net';
 import { ReloadPage, ConfirmReloadPage } from './reloadPage';
 import { PageWebNav } from './page';
-import { Login } from './login';
-import { createLogin } from '../auth';
+import { createLogin, Login, showForget, showRegister } from './login';
+//import { createLogin } from '../auth';
 
 const regEx = new RegExp('Android|webOS|iPhone|iPad|' +
     'BlackBerry|Windows Phone|'  +
@@ -891,13 +891,11 @@ export class Nav {
 	}
 	
 	async showRegister() {
-		let login = await this.getLogin();
-		login.showRegister();
+		showRegister();
 	}
 
 	async showForget() {
-		let login = await this.getLogin();
-		login.showForget();
+		showForget();
 	}
 
     async logout(callback?:()=>Promise<void>) { //notShowLogin?:boolean) {

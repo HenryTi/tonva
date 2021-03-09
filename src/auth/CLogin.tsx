@@ -7,8 +7,7 @@ import { VLogout } from './VLogout';
 import { VLogin } from './VLogin';
 import { CenterAppApi, userApi } from '../net';
 import { VChangePassword } from './VChangePassword';
-import { CRegister } from './register';
-import { CForget } from './register';
+import { CForget, CRegister } from './register';
 
 export class CLogin extends Controller implements Login {
 	protected async internalStart() {
