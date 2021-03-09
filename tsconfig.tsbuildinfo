@@ -1197,7 +1197,7 @@
         "affectsGlobalScope": false
       },
       "./src/components/ax/index.tsx": {
-        "version": "99cfa2c3ab02a47d39b61bfc51ccfe78a165d5d9bdf0a9cba97f109b7b7320db",
+        "version": "2301b25ee01fe9b2f2c9ba2bca9d0f5f2fdcf4ca96dd462da14144375e0c536e",
         "signature": "f6c45d508d831a3202fad9c60e0b255fb6028999ec6b5fe5d6108a8f4f2ac212",
         "affectsGlobalScope": false
       },

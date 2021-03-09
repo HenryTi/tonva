@@ -44,7 +44,10 @@ var Ax = function (axProps) {
         var naClassName = axProps.naClassName;
         if (!onClick) {
             onClick = function () {
-                nav_1.nav.openSysPage(href); //.navigate(href);
+                if (nav_1.nav.openSysPage(href) === false) {
+                    nav_1.nav.navigate(href);
+                }
+                ;
                 return false;
             };
         }
