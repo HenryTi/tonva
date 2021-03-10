@@ -159,7 +159,13 @@ var Controller = /** @class */ (function () {
     };
     Controller.prototype.onDispose = function () {
     };
-    //get isRouting() {return nav.isRouting;}
+    Object.defineProperty(Controller.prototype, "timeZone", {
+        get: function () {
+            return tool_1.env.timeZone;
+        },
+        enumerable: false,
+        configurable: true
+    });
     Controller.prototype.isMe = function (id) {
         if (id === null)
             return false;

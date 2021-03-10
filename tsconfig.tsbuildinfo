@@ -502,8 +502,8 @@
         "affectsGlobalScope": false
       },
       "./src/tool/env.ts": {
-        "version": "c92c13d36a7cb4c952b8a167549b839c7185d278a2362e3439d030aeaa474992",
-        "signature": "b28a5ed9a8984eb1497de1876c18f1a5b0ecdb86e998223d0f047f5e53c4b38a",
+        "version": "debbd2a77bed3eda1776102c9ce69701e70b14d8c19febd1bb473521d60a5480",
+        "signature": "f0ef24cd0375f2baf6129e26e29c115be69959a3516481bc149b71bda72c7fb1",
         "affectsGlobalScope": false
       },
       "./src/tool/local.ts": {
@@ -787,8 +787,8 @@
         "affectsGlobalScope": false
       },
       "./src/vm/controller.tsx": {
-        "version": "a5485c2c67a07e4d4a1591beb9ff9955b2a7ebcc58b9dd26b79da9fd0ce4cb22",
-        "signature": "05fb88654ea3d5d6ec2ecbaabf67a3a5d03d30c7304e46c44a3190a229ad4e88",
+        "version": "f4d1a5884f8130dde70fa07f5b1c0229adbef29960a238146adccf12ef243c86",
+        "signature": "4b79f708abab2486bc5c599f868d2a498f070a828d6e7c9820ba3fbb499872dd",
         "affectsGlobalScope": false
       },
       "./src/vm/components/cstringedit.tsx": {
@@ -862,8 +862,8 @@
         "affectsGlobalScope": false
       },
       "./src/components/nav.tsx": {
-        "version": "24a526edb3bd27e5ef8e19128835edc5f7f3f2a28c04dc92e8a1cdfb141ff2ea",
-        "signature": "185096a3d847fd0eda3d96fad1bbb900b107fdd6b32579d0647b987acaabed6b",
+        "version": "921b139676f15de17e0d7a87e064faa1e26e4e13235eb22abd4a71c4b873338c",
+        "signature": "476e437a6034844475360c60265e3e8cfe3f34effb0a06db49ce833fef89cd45",
         "affectsGlobalScope": false
       },
       "./src/components/schema/schema.ts": {
@@ -1267,8 +1267,8 @@
         "affectsGlobalScope": false
       },
       "./src/uq/tuid/tuid.ts": {
-        "version": "ed2a374e00678bf1842160b9932373e193fcd55af9dc297d9b740b0f8638e7e4",
-        "signature": "e8814ec60e1f9dfb7530c0a5565a5dcb26e14de38e486e8d9708014e369f1f8f",
+        "version": "0ffb0bf667f9f924c0e1aff02ec8928c916074577149d2102e2acfa0a84426b1",
+        "signature": "e3c97965b761ebc1b01df08cbd896ea78678554b324028ae209e53f5e8118707",
         "affectsGlobalScope": false
       },
       "./src/uq/tuid/boxid.tsx": {

@@ -43,6 +43,7 @@ export declare abstract class Controller {
     private receiveHandlerId;
     protected dispose: () => void;
     protected onDispose(): void;
+    get timeZone(): number;
     isMe(id: any): boolean;
     protected openVPage<C extends Controller, P extends VPage<C>>(vp: new (controller: C) => P, param?: any, afterBack?: (ret: any) => void): Promise<P>;
     protected replaceVPage<C extends Controller, P extends VPage<C>>(vp: new (controller: C) => P, param?: any, afterBack?: (ret: any) => void): Promise<P>;

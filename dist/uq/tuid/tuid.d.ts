@@ -15,7 +15,6 @@ export declare abstract class UqTuid<M> extends Entity {
     protected noCache: boolean;
     readonly typeName: string;
     protected idName: string;
-    cached: boolean;
     unique: string[];
     setSchema(schema: any): void;
     buildTuidBox(): TuidBox;

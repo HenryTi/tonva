@@ -162,7 +162,9 @@ var TuidInner = /** @class */ (function (_super) {
             return { id: id };
         return createBoxId(this, id);
     };
-    TuidInner.prototype.valueFromId = function (id) { return this.idCache.getValue(id); };
+    TuidInner.prototype.valueFromId = function (id) {
+        return this.idCache.getValue(id);
+    };
     TuidInner.prototype.resetCache = function (id) {
         if (typeof id === 'object')
             id = id.id;
@@ -221,8 +223,6 @@ var TuidInner = /** @class */ (function (_super) {
                     case 0: return [4 /*yield*/, new IdsCaller(this, { divName: divName, ids: ids }, false).request()];
                     case 1:
                         ret = _a.sent();
-                        if (ret.length > 0)
-                            this.cached = true;
                         return [2 /*return*/, ret];
                 }
             });
@@ -918,6 +918,7 @@ var TuidDiv = /** @class */ (function (_super) {
     TuidDiv.prototype.useId = function (id, defer) {
         if (this.noCache === true)
             return;
+        //addTuids(this.name, [id]);
         this.idCache.useId(id, defer);
     };
     /*
