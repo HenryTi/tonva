@@ -1262,8 +1262,8 @@
         "affectsGlobalScope": false
       },
       "./src/uq/tuid/idcache.ts": {
-        "version": "ab4550e24d82fc790d142c06837b45a9dc78b261468f954fba2dba0e0971acb9",
-        "signature": "6cabd1b558f7e6dee975601cda45eee981d58f54e0dcec073ab4dc2a2a9d0646",
+        "version": "01fd89462ea851093c7a5c89c7cc702275ee368c09669189514e3b0856d60644",
+        "signature": "5bda644dcd28e0954debb0c2be30a6d950a3a47ec64b58a2bbb77e0cd1d2bfcc",
         "affectsGlobalScope": false
       },
       "./src/uq/tuid/tuid.ts": {

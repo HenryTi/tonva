@@ -93,24 +93,21 @@ var IdCache = /** @class */ (function () {
         }
         if (this.queue.length >= maxCacheSize) {
             // 缓冲已满，先去掉最不常用的
-            var r = this.queue.shift();
-            if (r === id) {
+            var r_1 = this.queue.shift();
+            if (r_1 === id) {
                 // 如果移除的，正好是现在用的，则插入
-                this.queue.push(r);
+                this.queue.push(r_1);
                 return;
             }
             //let rKey = String(r);
-            if (this.cache.has(r) === true) {
+            if (this.cache.has(r_1) === true) {
                 // 如果移除r已经缓存
-                this.cache.delete(r);
+                this.cache.delete(r_1);
             }
             else {
                 // 如果移除r还没有缓存
-                /*
-                let index = this.waitingIds.findIndex(v => v === r);
+                var index = this.waitingIds.findIndex(function (v) { return v === r_1; });
                 this.waitingIds.splice(index, 1);
-                */
-                //this.removeWaiting(r);
             }
         }
         this.waitingIds.push(id);
@@ -122,11 +119,11 @@ var IdCache = /** @class */ (function () {
         let index = this.waitingIds.findIndex(v => v === id);
         this.waitingIds.splice(index, 1);
     }
-    */
-    IdCache.prototype.clearWaiting = function () {
+    
+    protected clearWaiting() {
         this.waitingIds.splice(0, this.waitingIds.length);
-    };
-    /*
+    }
+    
     protected removeLoading(id:number) {
         if (this.loadingIds === undefined) return;
         let index = this.loadingIds.findIndex(v => v === id);
@@ -185,10 +182,7 @@ var IdCache = /** @class */ (function () {
             var tuidValues;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (this.waitingIds.length === 0)
-                            return [2 /*return*/];
-                        return [4 /*yield*/, this.loadIds()];
+                    case 0: return [4 /*yield*/, this.loadIds()];
                     case 1:
                         tuidValues = _a.sent();
                         /*
@@ -242,21 +236,20 @@ var IdCache = /** @class */ (function () {
     };
     IdCache.prototype.loadIds = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var ret;
+            var loadingIds, ret;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         if (this.waitingIds.length === 0)
                             return [2 /*return*/];
-                        //if (this.loading === true) return;
-                        //this.loading = true;
-                        this.loadingIds = __spreadArrays(this.waitingIds);
-                        this.clearWaiting();
-                        return [4 /*yield*/, this.loadTuidIdsOrLocal(this.loadingIds)];
+                        loadingIds = __spreadArrays(this.waitingIds);
+                        //this.clearWaiting();
+                        this.waitingIds = [];
+                        return [4 /*yield*/, this.loadTuidIdsOrLocal(loadingIds)];
                     case 1:
                         ret = _a.sent();
                         //this.loading = false;
-                        this.loadingIds = undefined;
+                        //this.loadingIds = undefined;
                         return [2 /*return*/, ret];
                 }
             });
