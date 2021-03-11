@@ -136,8 +136,7 @@ export declare class Nav {
     setUqRoles(uq: string, roles: string[]): void;
     loadMe(): Promise<void>;
     private internalLogined;
-    actionAfterLogin: () => Promise<void>;
-    actionAfterLogout: () => Promise<void>;
+    onChangeLogin: (user: User) => Promise<void>;
     logined(user: User, callback?: (user: User) => Promise<void>): Promise<void>;
     userLogined(user: User, callback?: (user: User) => Promise<void>): Promise<void>;
     loginTop(defaultTop: JSX.Element): JSX.Element;

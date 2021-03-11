@@ -2,6 +2,7 @@
 import { RouteFunc, Hooks, Navigo, NamedRoute } from "../components";
 import { Controller } from '../vm';
 import { TVs } from "../uq";
+import { User } from "tool";
 export interface IConstructor<T> {
     new (...args: any[]): T;
 }
@@ -46,4 +47,5 @@ export declare abstract class CAppBase extends Controller {
     }): Navigo;
     protected onNavRoutes(): void;
     private showUnsupport;
+    protected onChangeLogin(user: User): Promise<void>;
 }

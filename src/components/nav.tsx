@@ -823,11 +823,10 @@ export class Nav {
 		else {
             await this.showAppView(isUserLogin);
         }
-		await this.actionAfterLogin?.();
+		await this.onChangeLogin?.(this.user);
 	}
 
-	actionAfterLogin: () => Promise<void>;
-	actionAfterLogout: () => Promise<void>;
+	onChangeLogin: (user:User) => Promise<void>;
 
 	// 缓冲登录
     async logined(user: User, callback?: (user:User)=>Promise<void>) {
@@ -919,7 +918,7 @@ export class Nav {
             await nav.start();
         else
             await callback();
-		this.actionAfterLogout?.();
+		this.onChangeLogin?.(undefined);
     }
 
     async changePassword() {

@@ -862,8 +862,8 @@
         "affectsGlobalScope": false
       },
       "./src/components/nav.tsx": {
-        "version": "2b8e0db666cc29b95fe85081c616ddda68d79f7eff652d24e1c81b1c8cd664dd",
-        "signature": "5aee37c5eeb7c7b0110b113a8ef0e3df777e5e822a128a0349a7645aa73c65ab",
+        "version": "c6cf48e41a146dc60a21704e78bfca7b524cd99e45da7f813440d96876663e39",
+        "signature": "e67c9dcab29f12087af5445853aec8fc372c4b77d45304338905d83a2127469d",
         "affectsGlobalScope": false
       },
       "./src/components/schema/schema.ts": {
@@ -1352,8 +1352,8 @@
         "affectsGlobalScope": false
       },
       "./src/app/cappbase.ts": {
-        "version": "ea5aca64701e623519b59b5d7ffca81b18e10d79c283d9477e00969b1ef48357",
-        "signature": "36e749d8d049643a1daf1bdf017159baf1afaac8b7c2419582ec593d1fabf293",
+        "version": "39e86ee37f651374d5a6d57ba453f81cc292e738c7abf446a92be9ec8f976a4b",
+        "signature": "00d5ee59650b52731ee41cb46d981ce2303762f375f2d2d2709f6d5c77a1909c",
         "affectsGlobalScope": false
       },
       "./src/app/start.ts": {
@@ -2152,6 +2152,7 @@
         "./src/app/centerapi.ts",
         "./src/app/vmain.tsx",
         "./src/components/index.ts",
+        "./src/tool/index.ts",
         "./src/uq/index.ts",
         "./src/vm/index.ts"
       ],
@@ -4138,6 +4139,7 @@
       ],
       "./src/app/cappbase.ts": [
         "./src/components/index.ts",
+        "./src/tool/index.ts",
         "./src/uq/index.ts",
         "./src/vm/index.ts"
       ],

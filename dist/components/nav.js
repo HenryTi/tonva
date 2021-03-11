@@ -1085,7 +1085,7 @@ var Nav = /** @class */ (function () {
                     case 3:
                         _b.sent();
                         _b.label = 4;
-                    case 4: return [4 /*yield*/, ((_a = this.actionAfterLogin) === null || _a === void 0 ? void 0 : _a.call(this))];
+                    case 4: return [4 /*yield*/, ((_a = this.onChangeLogin) === null || _a === void 0 ? void 0 : _a.call(this, this.user))];
                     case 5:
                         _b.sent();
                         return [2 /*return*/];
@@ -1220,7 +1220,7 @@ var Nav = /** @class */ (function () {
                         _b.sent();
                         _b.label = 4;
                     case 4:
-                        (_a = this.actionAfterLogout) === null || _a === void 0 ? void 0 : _a.call(this);
+                        (_a = this.onChangeLogin) === null || _a === void 0 ? void 0 : _a.call(this, undefined);
                         return [2 /*return*/];
                 }
             });
