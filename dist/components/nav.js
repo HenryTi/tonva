@@ -507,6 +507,13 @@ var Nav = /** @class */ (function () {
         this.windowOnScroll = function (ev) {
             console.log('scroll event');
         };
+        this.onfocus = function () {
+            var user = _this.diffUser();
+            if (!user)
+                exports.nav.logout();
+            else
+                exports.nav.logined(user);
+        };
         this.navLogin = function (params) { return __awaiter(_this, void 0, void 0, function () {
             var _this = this;
             return __generator(this, function (_a) {
@@ -839,6 +846,15 @@ var Nav = /** @class */ (function () {
             });
         });
     };
+    Nav.prototype.diffUser = function () {
+        var user = this.local.user.get();
+        var curUser = exports.nav.user;
+        if (user === undefined && curUser === undefined)
+            return;
+        if (user && curUser && user.id === curUser.id)
+            return;
+        return user;
+    };
     Nav.prototype.start = function () {
         return __awaiter(this, void 0, void 0, function () {
             var user, _a, notLogined, userPassword, ret, userName, password, logindUser, notLogined_1, err_2;
@@ -848,6 +864,7 @@ var Nav = /** @class */ (function () {
                         _b.trys.push([0, 10, 11, 12]);
                         window.onerror = this.windowOnError;
                         window.onunhandledrejection = this.windowOnUnhandledRejection;
+                        window.onfocus = this.onfocus;
                         if (isMobile === true) {
                             document.onselectstart = function () { return false; };
                             document.oncontextmenu = function () { return false; };
