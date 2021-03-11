@@ -589,6 +589,7 @@ export class Nav {
 
 	private onfocus = () => {
 		let user = this.diffUser();
+		console.log('window onfocus', user);
 		if (!user) nav.logout();
 		else nav.logined(user)
 	}

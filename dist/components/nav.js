@@ -509,6 +509,7 @@ var Nav = /** @class */ (function () {
         };
         this.onfocus = function () {
             var user = _this.diffUser();
+            console.log('window onfocus', user);
             if (!user)
                 exports.nav.logout();
             else

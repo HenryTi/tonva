@@ -862,7 +862,7 @@
         "affectsGlobalScope": false
       },
       "./src/components/nav.tsx": {
-        "version": "ea0f650e00e4a9d715853b9c316c2a43bc7377f42c37b284617adf3b20122087",
+        "version": "ecdb8978508a43730fea90acd55c2809ecb844714c2ff9e66ba406cf51ac8e7d",
         "signature": "1da17dd93c507b72b29c6942687d56f8c572589aba8c415a53b8f6fc5bba292c",
         "affectsGlobalScope": false
       },
