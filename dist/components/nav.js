@@ -507,7 +507,7 @@ var Nav = /** @class */ (function () {
         this.windowOnScroll = function (ev) {
             console.log('scroll event');
         };
-        this.onfocus = function () {
+        this.reloadUser = function () {
             var user = _this.local.user.get();
             var curUser = exports.nav.user;
             console.log('window onfocus storage user', user, 'curUser', curUser);
@@ -861,7 +861,7 @@ var Nav = /** @class */ (function () {
                         _b.trys.push([0, 10, 11, 12]);
                         window.onerror = this.windowOnError;
                         window.onunhandledrejection = this.windowOnUnhandledRejection;
-                        window.onfocus = this.onfocus;
+                        window.onfocus = this.reloadUser;
                         if (isMobile === true) {
                             document.onselectstart = function () { return false; };
                             document.oncontextmenu = function () { return false; };
