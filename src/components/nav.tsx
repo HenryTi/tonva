@@ -579,17 +579,12 @@ export class Nav {
 		nav.setGuest(guest);
 	}
 
-	private diffUser():User {
+	private onfocus = () => {
 		let user: User = this.local.user.get();
 		let curUser = nav.user;
+		console.log('window onfocus storage user', user, 'curUser', curUser);
 		if (user === undefined && curUser === undefined) return;
 		if (user && curUser && user.id === curUser.id) return;
-		return user;
-	}
-
-	private onfocus = () => {
-		let user = this.diffUser();
-		console.log('window onfocus', user);
 		if (!user) nav.logout();
 		else nav.logined(user)
 	}

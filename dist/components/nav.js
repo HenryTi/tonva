@@ -508,8 +508,13 @@ var Nav = /** @class */ (function () {
             console.log('scroll event');
         };
         this.onfocus = function () {
-            var user = _this.diffUser();
-            console.log('window onfocus', user);
+            var user = _this.local.user.get();
+            var curUser = exports.nav.user;
+            console.log('window onfocus storage user', user, 'curUser', curUser);
+            if (user === undefined && curUser === undefined)
+                return;
+            if (user && curUser && user.id === curUser.id)
+                return;
             if (!user)
                 exports.nav.logout();
             else
@@ -846,15 +851,6 @@ var Nav = /** @class */ (function () {
                 }
             });
         });
-    };
-    Nav.prototype.diffUser = function () {
-        var user = this.local.user.get();
-        var curUser = exports.nav.user;
-        if (user === undefined && curUser === undefined)
-            return;
-        if (user && curUser && user.id === curUser.id)
-            return;
-        return user;
     };
     Nav.prototype.start = function () {
         return __awaiter(this, void 0, void 0, function () {
