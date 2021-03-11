@@ -3,7 +3,7 @@ import { Controller } from '../vm';
 import { UQsMan, TVs } from "../uq";
 import { centerApi } from "./centerApi";
 import { VUnitSelect, VErrorsPage, VStartError, VUnsupportedUnit } from "./vMain";
-import { User } from "tool";
+import { User } from "../tool";
 
 export interface IConstructor<T> {
     new (...args: any[]): T;

@@ -2,7 +2,7 @@
 import { RouteFunc, Hooks, Navigo, NamedRoute } from "../components";
 import { Controller } from '../vm';
 import { TVs } from "../uq";
-import { User } from "tool";
+import { User } from "../tool";
 export interface IConstructor<T> {
     new (...args: any[]): T;
 }

@@ -1352,8 +1352,8 @@
         "affectsGlobalScope": false
       },
       "./src/app/cappbase.ts": {
-        "version": "39e86ee37f651374d5a6d57ba453f81cc292e738c7abf446a92be9ec8f976a4b",
-        "signature": "00d5ee59650b52731ee41cb46d981ce2303762f375f2d2d2709f6d5c77a1909c",
+        "version": "ea6db2e4239515723fbdba2ada2ff82ffc88464b0473cc2bcca279be5e05af6d",
+        "signature": "7166dc63618f30951fe64293a681ceb93e1e63a95efbf97de6028c50c55535e9",
         "affectsGlobalScope": false
       },
       "./src/app/start.ts": {
