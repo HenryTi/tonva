@@ -25,6 +25,7 @@ export interface StackItem {
     disposer?: () => void;
 }
 export interface NavViewState {
+    notSupportedBrowser: boolean;
     stack: StackItem[];
     wait: 0 | 1 | 2;
     fetchError: FetchError;

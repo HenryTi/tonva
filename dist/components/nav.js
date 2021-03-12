@@ -95,7 +95,6 @@ var lodash_1 = __importDefault(require("lodash"));
 var page_1 = require("./page/page");
 var netToken_1 = require("../net/netToken");
 var fetchErrorView_1 = __importStar(require("./fetchErrorView"));
-//import {appUrl, setAppInFrame, getExHash, getExHashPos} from '../net/appBridge';
 var tool_1 = require("../tool");
 var net_1 = require("../net");
 var res_1 = require("../res/res");
@@ -118,6 +117,7 @@ var logMark;
 var logs = [];
 ;
 var stackKey = 1;
+var notSupportedBrowsers = ['IE'];
 var NavView = /** @class */ (function (_super) {
     __extends(NavView, _super);
     function NavView(props) {
@@ -171,7 +171,10 @@ var NavView = /** @class */ (function (_super) {
             _this.setState({ fetchError: undefined });
         };
         _this.stack = [];
+        var browser = tool_1.env.browser;
+        var notSupportedBrowser = notSupportedBrowsers.findIndex(function (v) { return v === browser; }) >= 0;
         _this.state = {
+            notSupportedBrowser: notSupportedBrowser,
             stack: _this.stack,
             wait: 0,
             fetchError: undefined
@@ -184,16 +187,14 @@ var NavView = /** @class */ (function (_super) {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
+                        if (this.state.notSupportedBrowser === true)
+                            return [2 /*return*/];
                         window.addEventListener('popstate', this.navBack);
-                        //if (nav.isRouting === false) {
                         return [4 /*yield*/, exports.nav.init()];
                     case 1:
-                        //if (nav.isRouting === false) {
                         _a.sent();
-                        //}
                         return [4 /*yield*/, exports.nav.start()];
                     case 2:
-                        //}
                         _a.sent();
                         return [2 /*return*/];
                 }
@@ -446,7 +447,12 @@ var NavView = /** @class */ (function (_super) {
         return window.confirm(message);
     };
     NavView.prototype.render = function () {
-        var _a = this.state, wait = _a.wait, fetchError = _a.fetchError;
+        var _a = this.state, notSupportedBrowser = _a.notSupportedBrowser, wait = _a.wait, fetchError = _a.fetchError;
+        if (notSupportedBrowser === true) {
+            return React.createElement("div", { className: "p-3 text-danger" },
+                tool_1.env.browser,
+                " not supported !");
+        }
         var stack = this.state.stack;
         var top = stack.length - 1;
         var elWait = null, elError = null;

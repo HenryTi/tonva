@@ -10,13 +10,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.env = void 0;
 var _62_1 = require("./62");
 var localDb_1 = require("./localDb");
-/*
-// 如果路径上有独立的test单词，则是test环境
-function isTesting():boolean {
-    let ret = /(\btest\b)/i.test(document.location.href);
-    return ret;
-}
-*/
 exports.env = (function () {
     var _a = initEnv(), unit = _a.unit, testing = _a.testing, params = _a.params, lang = _a.lang, district = _a.district, timeZone = _a.timeZone;
     return {
@@ -26,6 +19,7 @@ exports.env = (function () {
         lang: lang,
         district: district,
         timeZone: timeZone,
+        browser: detectBrowser(),
         isDevelopment: process.env.NODE_ENV === 'development',
         localDb: new localDb_1.LocalMap(testing === true ? '$$' : '$'),
         setTimeout: function (tag, callback, ms) {
@@ -133,5 +127,18 @@ function initEnv() {
     }
     var timeZone = -new Date().getTimezoneOffset() / 60;
     return { unit: unit, testing: testing, params: params, lang: lang, district: district, timeZone: timeZone };
+}
+function detectBrowser() {
+    if ((navigator.userAgent.indexOf("Opera") || navigator.userAgent.indexOf('OPR')) != -1)
+        return 'Opera';
+    if (navigator.userAgent.indexOf("Chrome") != -1)
+        return 'Chrome';
+    if (navigator.userAgent.indexOf("Safari") != -1)
+        return 'Safari';
+    if (navigator.userAgent.indexOf("Firefox") != -1)
+        return 'Firefox';
+    if ((navigator.userAgent.indexOf("MSIE") != -1) || (!!document.documentMode == true))
+        return 'IE'; //crap
+    return 'Unknown';
 }
 //# sourceMappingURL=env.js.map

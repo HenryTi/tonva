@@ -502,8 +502,8 @@
         "affectsGlobalScope": false
       },
       "./src/tool/env.ts": {
-        "version": "debbd2a77bed3eda1776102c9ce69701e70b14d8c19febd1bb473521d60a5480",
-        "signature": "f0ef24cd0375f2baf6129e26e29c115be69959a3516481bc149b71bda72c7fb1",
+        "version": "ae9fb14ecc07a5baa28d601d0723592e37a20ddffff82000489a4e6123c126e8",
+        "signature": "127ac4bb8a781a7ce415a0bbad9f87638de7e091e4715c992202b27c1313b63e",
         "affectsGlobalScope": false
       },
       "./src/tool/local.ts": {
@@ -862,8 +862,8 @@
         "affectsGlobalScope": false
       },
       "./src/components/nav.tsx": {
-        "version": "c6cf48e41a146dc60a21704e78bfca7b524cd99e45da7f813440d96876663e39",
-        "signature": "e67c9dcab29f12087af5445853aec8fc372c4b77d45304338905d83a2127469d",
+        "version": "5df74302fe615956a59ca32def2316a6a88b67f54edd52f32a2e20ad3ff4c6a4",
+        "signature": "cf6ba7d9bcb7bf11ef3b043e15dae27917063c2552f443bb72ad475b7e3ed40e",
         "affectsGlobalScope": false
       },
       "./src/components/schema/schema.ts": {

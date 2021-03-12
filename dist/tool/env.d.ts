@@ -9,6 +9,7 @@ export declare const env: {
     lang: string;
     district: string;
     timeZone: number;
+    browser: string;
     isDevelopment: boolean;
     localDb: LocalMap;
     setTimeout: (tag: string, callback: (...args: any[]) => void, ms: number, ...args: any[]) => NodeJS.Timer;
