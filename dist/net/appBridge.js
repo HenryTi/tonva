@@ -93,6 +93,8 @@ window.addEventListener('message', function (evt) {
             switch (_c.label) {
                 case 0:
                     message = evt.data;
+                    if (!message)
+                        return [2 /*return*/];
                     _b = message.type;
                     switch (_b) {
                         case 'sub-frame-started': return [3 /*break*/, 1];

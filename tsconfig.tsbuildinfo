@@ -1202,7 +1202,7 @@
         "affectsGlobalScope": false
       },
       "./src/net/appbridge.ts": {
-        "version": "a51dd9845d3efb51726aee048f579acf364f4b2f53db7b954b13a8f1478420b7",
+        "version": "8b3416c48aeebc9e2dd3c7323bf73d47d056c4369e70dd7de109c75fd947311b",
         "signature": "2b3cd527a22338558ecf49d98b7a0db7147f6b1a323c784a9e7fecc2db02b085",
         "affectsGlobalScope": false
       },
