@@ -516,7 +516,7 @@ var Nav = /** @class */ (function () {
         this.reloadUser = function () {
             var user = _this.local.user.get();
             var curUser = exports.nav.user;
-            console.log('window onfocus storage user', user, 'curUser', curUser);
+            console.log('window onfocus storage user', user, 'curUser', mobx_1.toJS(curUser));
             if (user === undefined && curUser === undefined)
                 return;
             if (user && curUser && user.id === curUser.id)

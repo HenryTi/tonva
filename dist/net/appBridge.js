@@ -52,6 +52,7 @@ function logoutUqTokens() {
     for (var i in uqTokens) {
         uqTokens[i] = undefined;
     }
+    uqApi_1.UqTokenApi.clearLocal();
 }
 exports.logoutUqTokens = logoutUqTokens;
 /*

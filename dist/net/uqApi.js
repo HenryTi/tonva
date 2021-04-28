@@ -424,6 +424,9 @@ var UqTokenApi = /** @class */ (function (_super) {
         _this.localMap = tool_1.env.localDb.map(uqTokensName);
         return _this;
     }
+    UqTokenApi.clearLocal = function () {
+        tool_1.env.localDb.removeItem(uqTokensName);
+    };
     UqTokenApi.prototype.uq = function (params) {
         return __awaiter(this, void 0, void 0, function () {
             var uqOwner, uqName, un, localCache, uqToken, unit, user, nowTick, tick, value, appUqParams, ret, unit, uqOwner_1, uqName_1, err, err_1;

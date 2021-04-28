@@ -50,6 +50,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CAppBase = void 0;
+var net_1 = require("../net");
 var components_1 = require("../components");
 var vm_1 = require("../vm");
 var uq_1 = require("../uq");
@@ -106,22 +107,20 @@ var CAppBase = /** @class */ (function (_super) {
             this.roleDefines = [];
         }
     };
-    CAppBase.prototype.beforeStart = function () {
+    CAppBase.prototype.initUQs = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var _a, appName, version, tvs, retErrors, user, uqAppId, result, err_1;
+            var _a, appName, version, tvs, user, uqAppId, result;
             return __generator(this, function (_b) {
                 switch (_b.label) {
                     case 0:
-                        _b.trys.push([0, 4, , 5]);
-                        this.onNavRoutes();
                         if (!this.appConfig)
                             return [2 /*return*/, true];
+                        net_1.logoutApis();
                         _a = this.appConfig, appName = _a.appName, version = _a.version, tvs = _a.tvs;
                         return [4 /*yield*/, uq_1.UQsMan.load(appName, version, tvs)];
                     case 1:
                         _b.sent();
                         this._uqs = uq_1.UQsMan._uqs;
-                        retErrors = uq_1.UQsMan.errors;
                         user = components_1.nav.user;
                         if (!(user !== undefined && user.id > 0)) return [3 /*break*/, 3];
                         uqAppId = uq_1.UQsMan.value.id;
@@ -129,39 +128,70 @@ var CAppBase = /** @class */ (function (_super) {
                     case 2:
                         result = _b.sent();
                         this.appUnits = result;
+                        _b.label = 3;
+                    case 3: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    CAppBase.prototype.beforeStart = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var retErrors, err_1;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        this.onNavRoutes();
                         /*
-                        // 老版本，只返回一个数组。新版本，返回两个数组。下面做两个数组的判断
-                        if (result.length === 0) {
+                        if (!this.appConfig) return true;
+                        let {appName, version, tvs} = this.appConfig;
+                        await UQsMan.load(appName, version, tvs);
+                        this._uqs = UQsMan._uqs;
+                        //let retErrors = await this.load();
+                        //let app = await loadAppUqs(this.appOwner, this.appName);
+                        // if (isDevelopment === true) {
+                        // 这段代码原本打算只是在程序员调试方式下使用，实际上，也可以开放给普通用户，production方式下
+                        let retErrors = UQsMan.errors;
+                        let {user} = nav;
+                        if (user !== undefined && user.id > 0) {
+                            let uqAppId = UQsMan.value.id;
+                            let result = await centerApi.userAppUnits(uqAppId);
                             this.appUnits = result;
-                        }
-                        else {
-                            if (Array.isArray(result[0]) === true) {
-                                this.appUnits = result[0];
-                                let result1 = result[1];
-                                if (Array.isArray(result1) === true) {
-                                    this.roleDefines = result1[0]?.roles?.split('\t');
-                                    if (this.roleDefines === undefined) this.roleDefines = [];
-                                }
-                            }
-                            else {
-                                this.appUnits = result;
-                            }
+                            if (this.noUnit === true) return true;
                         }
                         */
-                        if (this.noUnit === true)
-                            return [2 /*return*/, true];
-                        _b.label = 3;
-                    case 3:
+                        return [4 /*yield*/, this.initUQs()];
+                    case 1:
+                        /*
+                        if (!this.appConfig) return true;
+                        let {appName, version, tvs} = this.appConfig;
+                        await UQsMan.load(appName, version, tvs);
+                        this._uqs = UQsMan._uqs;
+                        //let retErrors = await this.load();
+                        //let app = await loadAppUqs(this.appOwner, this.appName);
+                        // if (isDevelopment === true) {
+                        // 这段代码原本打算只是在程序员调试方式下使用，实际上，也可以开放给普通用户，production方式下
+                        let retErrors = UQsMan.errors;
+                        let {user} = nav;
+                        if (user !== undefined && user.id > 0) {
+                            let uqAppId = UQsMan.value.id;
+                            let result = await centerApi.userAppUnits(uqAppId);
+                            this.appUnits = result;
+                            if (this.noUnit === true) return true;
+                        }
+                        */
+                        _a.sent();
+                        retErrors = uq_1.UQsMan.errors;
                         if (retErrors !== undefined) {
                             this.openVPage(vMain_1.VErrorsPage, retErrors);
                             return [2 /*return*/, false];
                         }
                         return [2 /*return*/, true];
-                    case 4:
-                        err_1 = _b.sent();
+                    case 2:
+                        err_1 = _a.sent();
                         this.openVPage(vMain_1.VStartError, err_1);
                         return [2 /*return*/, false];
-                    case 5: return [2 /*return*/];
+                    case 3: return [2 /*return*/];
                 }
             });
         });

@@ -36,6 +36,7 @@ export declare abstract class CAppBase extends Controller {
     private roleDefines;
     hasRole(role: string | number): boolean;
     setAppUnit(appUnit: any): void;
+    protected initUQs(): Promise<boolean>;
     protected beforeStart(): Promise<boolean>;
     protected afterStart(): Promise<void>;
     userFromId(userId: number): Promise<any>;
