@@ -8,9 +8,11 @@ export interface DropdownAction {
 }
 export interface DropdownActionsProps {
     icon?: string;
+    content?: string | JSX.Element;
     actions: DropdownAction[];
     isRight?: boolean;
     className?: string;
+    containerClass?: string;
     itemIconClass?: string;
     itemCaptionClass?: string;
 }
@@ -21,8 +23,6 @@ export declare class DropdownActions extends React.Component<DropdownActionsProp
     private menu;
     private button;
     constructor(props: DropdownActionsProps);
-    componentDidMount(): void;
-    componentWillUnmount(): void;
     private handleDocumentClick;
     private toggle;
     render(): JSX.Element;

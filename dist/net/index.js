@@ -23,4 +23,5 @@ var appBridge_1 = require("./appBridge");
 Object.defineProperty(exports, "isBridged", { enumerable: true, get: function () { return appBridge_1.isBridged; } }); /*, getExHash*/
 __exportStar(require("./host"), exports);
 __exportStar(require("./messageHub"), exports);
+__exportStar(require("./centerApi"), exports);
 //# sourceMappingURL=index.js.map

@@ -42,37 +42,47 @@ var DropdownActions = /** @class */ (function (_super) {
     __extends(DropdownActions, _super);
     function DropdownActions(props) {
         var _this = _super.call(this, props) || this;
+        /*
+        componentDidMount() {
+            document.addEventListener('click', this.handleDocumentClick);
+            document.addEventListener('touchstart', this.handleDocumentClick);
+        }
+    
+        componentWillUnmount() {
+            document.removeEventListener('click', this.handleDocumentClick);
+            document.removeEventListener('touchstart', this.handleDocumentClick);
+        }
+        */
         _this.handleDocumentClick = function (evt) {
+            document.removeEventListener('click', _this.handleDocumentClick);
+            document.removeEventListener('touchstart', _this.handleDocumentClick);
             if (_this.state.dropdownOpen === false)
                 return;
-            if (_this.button && _this.button.contains(evt.target))
-                return;
+            //if (this.button && this.button.contains(evt.target)) return;
             if (!_this.menu)
                 return;
             //if (!this.menu.contains(evt.target)) 
             _this.toggle();
         };
         _this.toggle = function () {
-            _this.setState({
-                dropdownOpen: !_this.state.dropdownOpen
-            });
+            var dropdownOpen = _this.state.dropdownOpen;
+            dropdownOpen = !dropdownOpen;
+            _this.setState({ dropdownOpen: dropdownOpen });
+            if (dropdownOpen === true) {
+                setTimeout(function () {
+                    document.addEventListener('click', _this.handleDocumentClick);
+                    document.addEventListener('touchstart', _this.handleDocumentClick);
+                }, 10);
+            }
         };
         _this.state = {
             dropdownOpen: false
         };
         return _this;
     }
-    DropdownActions.prototype.componentDidMount = function () {
-        document.addEventListener('click', this.handleDocumentClick);
-        document.addEventListener('touchstart', this.handleDocumentClick);
-    };
-    DropdownActions.prototype.componentWillUnmount = function () {
-        document.removeEventListener('click', this.handleDocumentClick);
-        document.removeEventListener('touchstart', this.handleDocumentClick);
-    };
     DropdownActions.prototype.render = function () {
         var _this = this;
-        var _a = this.props, icon = _a.icon, actions = _a.actions, isRight = _a.isRight, className = _a.className, itemIconClass = _a.itemIconClass, itemCaptionClass = _a.itemCaptionClass;
+        var _a = this.props, icon = _a.icon, content = _a.content, actions = _a.actions, isRight = _a.isRight, className = _a.className, containerClass = _a.containerClass, itemIconClass = _a.itemIconClass, itemCaptionClass = _a.itemCaptionClass;
         if (isRight === undefined)
             isRight = true;
         var hasIcon = actions.some(function (v) {
@@ -84,9 +94,10 @@ var DropdownActions = /** @class */ (function (_super) {
         //isOpen={this.state.dropdownOpen} toggle={this.toggle}
         var cn = className || 'cursor-pointer dropdown-toggle btn btn-sm';
         //if (className) cn += className;
-        return React.createElement("div", { className: 'dropdown' },
+        return React.createElement("div", { className: classnames_1.default('dropdown', containerClass) },
             React.createElement("button", { ref: function (v) { return _this.button = v; }, className: cn, "data-toggle": "dropdown", "aria-expanded": dropdownOpen, onClick: this.toggle },
-                React.createElement("i", { className: classnames_1.default('fa fa-fw ', 'fa-' + (icon || 'ellipsis-v')) })),
+                icon !== null && React.createElement("i", { className: classnames_1.default('fa fa-fw ', 'fa-' + (icon || 'ellipsis-v')) }),
+                content && React.createElement("span", { className: "ml-1" }, content)),
             React.createElement("div", { ref: function (v) { return _this.menu = v; }, className: classnames_1.default({ "dropdown-menu": true, "dropdown-menu-right": isRight, "show": dropdownOpen }) }, actions.map(function (v, index) {
                 if (!v) {
                     return React.createElement("div", { className: "dropdown-divider", key: index });
@@ -98,6 +109,8 @@ var DropdownActions = /** @class */ (function (_super) {
                 if (hasIcon === true) {
                     if (icon !== undefined)
                         icon = 'fa-' + icon;
+                    if (!iconClass)
+                        iconClass = 'text-info';
                     i = React.createElement("i", { className: classnames_1.default('mr-2', 'fa', icon, 'fa-fw', iconClass || itemIconClass), "aria-hidden": true });
                 }
                 if (action === undefined)

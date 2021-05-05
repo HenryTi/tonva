@@ -14,5 +14,4 @@ __exportStar(require("./CAppBase"), exports);
 __exportStar(require("./start"), exports);
 __exportStar(require("./CBase"), exports);
 __exportStar(require("./startPage"), exports);
-__exportStar(require("./centerApi"), exports);
 //# sourceMappingURL=index.js.map

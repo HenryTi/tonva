@@ -43,7 +43,6 @@ exports.buildUqApp = exports.uqAppStart = void 0;
 var fs_1 = __importDefault(require("fs"));
 var index_1 = require("./index");
 var components_1 = require("../components");
-//import { env } from 'tonva/tool';
 //const uqAppPath = 'src/UqApp';
 var red = '\x1b[41m%s\x1b[0m';
 var lastBuildTime = 0;
