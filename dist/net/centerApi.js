@@ -49,7 +49,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.centerApi = exports.CenterApi = void 0;
+exports.centerApi = void 0;
 var uqApi_1 = require("./uqApi");
 var CenterApi = /** @class */ (function (_super) {
     __extends(CenterApi, _super);
@@ -88,6 +88,5 @@ var CenterApi = /** @class */ (function (_super) {
     };
     return CenterApi;
 }(uqApi_1.CenterApiBase));
-exports.CenterApi = CenterApi;
 exports.centerApi = new CenterApi('tv/', undefined);
 //# sourceMappingURL=centerApi.js.map

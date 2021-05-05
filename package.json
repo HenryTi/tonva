@@ -1,6 +1,6 @@
 {
   "name": "tonva",
-  "version": "1.9.39",
+  "version": "1.9.41",
   "description": "tonva client libs",
   "private": false,
   "main": "dist/index.js",

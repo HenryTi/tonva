@@ -502,7 +502,7 @@
         "affectsGlobalScope": false
       },
       "./src/tool/env.ts": {
-        "version": "ae9fb14ecc07a5baa28d601d0723592e37a20ddffff82000489a4e6123c126e8",
+        "version": "6faa39f7a768c4d7689f511d9c1323301a8073ec70a850d78ddef45524688880",
         "signature": "127ac4bb8a781a7ce415a0bbad9f87638de7e091e4715c992202b27c1313b63e",
         "affectsGlobalScope": false
       },
@@ -862,7 +862,7 @@
         "affectsGlobalScope": false
       },
       "./src/components/nav.tsx": {
-        "version": "657145ad23575ab1b3ab6cf1bb09355db588b07fc9d123618e45bfd020230341",
+        "version": "a6544b8fe90ff801fcc49bb2728c3bd7dc614ea0c8059531fe3efa304ebb9457",
         "signature": "cf6ba7d9bcb7bf11ef3b043e15dae27917063c2552f443bb72ad475b7e3ed40e",
         "affectsGlobalScope": false
       },
@@ -1227,8 +1227,8 @@
         "affectsGlobalScope": false
       },
       "./src/net/centerapi.ts": {
-        "version": "705d1711230d53c1056d4f911e54bae1e8d62bebd1bf2e3e6e1a42ef57090869",
-        "signature": "b45499810987b72663e505f1cac0cf8985469bcdb4176359fa16ee7564d81fcb",
+        "version": "b5beac64d7d3626143d1e8bb1adc4b61909187c7c1c3a88b9f04c6fa96929334",
+        "signature": "e938c3be8d9dbceae2f2cca3141f256a30ca64df4e8a56be4109de92736a6d2f",
         "affectsGlobalScope": false
       },
       "./src/net/index.ts": {
@@ -1322,7 +1322,7 @@
         "affectsGlobalScope": false
       },
       "./src/uq/uqsman.ts": {
-        "version": "0f8fc9c295f28fb8fa1c14e4fc87d06efe9b313e17a9ce36359ec96ef12359b1",
+        "version": "6f6fb11aa56dbd1363a84756d29cf72f5b1d311207ca8821d4348c170e7766a0",
         "signature": "6efcdd0466aaae7cf1dca8e9a58a1bc5b04a14be87233b299c0587b6fc9c6b42",
         "affectsGlobalScope": false
       },
@@ -1352,8 +1352,8 @@
         "affectsGlobalScope": false
       },
       "./src/app/cappbase.ts": {
-        "version": "988c743e388a4eedc23c1e893b8b0d00d656f7d65b44171a275d05069f0572f8",
-        "signature": "dc40121f235a566ab90d7335928cfefb8437715bd2a6d5b40c9573584327c636",
+        "version": "8e1d7b67b99a3149b8e60c4f4d7d7e5f14e8d4a0c8faaae1575f4e2b272536fa",
+        "signature": "e271aa17e2fcec821a7a7bfc963efcc48b37a4f01e33da5484889ed272f2b43c",
         "affectsGlobalScope": false
       },
       "./src/app/start.ts": {

@@ -130,26 +130,25 @@ var UQsMan = /** @class */ (function () {
     };
     UQsMan.prototype.init = function (uqsData) {
         return __awaiter(this, void 0, void 0, function () {
-            var promiseInits;
-            var _this = this;
+            var promiseInits, _i, uqsData_1, uqData, uqOwner, uqName, uqFullName, uq, lower;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        promiseInits = uqsData.map(function (uqData) {
-                            var uqOwner = uqData.uqOwner, uqName = uqData.uqName;
-                            var uqFullName = uqOwner + '/' + uqName;
-                            //let uqUI = this.ui.uqs[uqFullName] as UqUI || {};
-                            //let cUq = this.newCUq(uqData, uqUI);
-                            //this.cUqCollection[uqFullName] = cUq;
-                            //this.uqs.addUq(cUq.uq);
-                            var uq = new uqMan_1.UqMan(_this, uqData, undefined, _this.tvs[uqFullName] || _this.tvs[uqName]);
-                            _this.collection[uqFullName] = uq;
-                            var lower = uqFullName.toLowerCase();
+                        promiseInits = [];
+                        for (_i = 0, uqsData_1 = uqsData; _i < uqsData_1.length; _i++) {
+                            uqData = uqsData_1[_i];
+                            uqOwner = uqData.uqOwner, uqName = uqData.uqName;
+                            uqFullName = uqOwner + '/' + uqName;
+                            if (this.collection[uqFullName])
+                                continue;
+                            uq = new uqMan_1.UqMan(this, uqData, undefined, this.tvs[uqFullName] || this.tvs[uqName]);
+                            this.collection[uqFullName] = uq;
+                            lower = uqFullName.toLowerCase();
                             if (lower !== uqFullName) {
-                                _this.collection[lower] = uq;
+                                this.collection[lower] = uq;
                             }
-                            return uq.init();
-                        });
+                            promiseInits.push(uq.init());
+                        }
                         return [4 /*yield*/, Promise.all(promiseInits)];
                     case 1:
                         _a.sent();

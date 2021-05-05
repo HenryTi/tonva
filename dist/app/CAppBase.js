@@ -59,6 +59,7 @@ var CAppBase = /** @class */ (function (_super) {
     __extends(CAppBase, _super);
     function CAppBase(config) {
         var _this = _super.call(this, undefined) || this;
+        _this.uqsUser = null;
         _this.appConfig = config || components_1.nav.navSettings;
         if (_this.appConfig) {
             var _a = _this.appConfig, appName = _a.appName, noUnit = _a.noUnit;
@@ -108,19 +109,22 @@ var CAppBase = /** @class */ (function (_super) {
     };
     CAppBase.prototype.initUQs = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var _a, appName, version, tvs, user, uqAppId, result;
+            var user, _a, appName, version, tvs, uqAppId, result;
             return __generator(this, function (_b) {
                 switch (_b.label) {
                     case 0:
                         if (!this.appConfig)
                             return [2 /*return*/, true];
+                        user = components_1.nav.user;
+                        if (user === this.uqsUser)
+                            return [2 /*return*/, true];
+                        this.uqsUser = user;
                         net_1.logoutApis();
                         _a = this.appConfig, appName = _a.appName, version = _a.version, tvs = _a.tvs;
                         return [4 /*yield*/, uq_1.UQsMan.load(appName, version, tvs)];
                     case 1:
                         _b.sent();
                         this._uqs = uq_1.UQsMan._uqs;
-                        user = components_1.nav.user;
                         if (!(user !== undefined && user.id > 0)) return [3 /*break*/, 3];
                         uqAppId = uq_1.UQsMan.value.id;
                         return [4 /*yield*/, net_1.centerApi.userAppUnits(uqAppId)];
