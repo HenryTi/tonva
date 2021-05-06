@@ -307,36 +307,32 @@ function bridgeCenterApi(url, method, body) {
     return __awaiter(this, void 0, void 0, function () {
         var _this = this;
         return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    console.log('bridgeCenterApi: url=%s, method=%s', url, method);
-                    return [4 /*yield*/, new Promise(function (resolve, reject) { return __awaiter(_this, void 0, void 0, function () {
-                            var callId, bca;
-                            return __generator(this, function (_a) {
-                                for (;;) {
-                                    callId = uid_1.uid();
-                                    bca = brideCenterApis[callId];
-                                    if (bca === undefined) {
-                                        brideCenterApis[callId] = {
-                                            id: callId,
-                                            resolve: resolve,
-                                            reject: reject,
-                                        };
-                                        break;
-                                    }
-                                }
-                                (window.opener || window.parent).postMessage({
-                                    type: 'center-api',
-                                    callId: callId,
-                                    url: url,
-                                    method: method,
-                                    body: body
-                                }, '*');
-                                return [2 /*return*/];
-                            });
-                        }); })];
-                case 1: return [2 /*return*/, _a.sent()];
-            }
+            console.log('bridgeCenterApi: url=%s, method=%s', url, method);
+            return [2 /*return*/, new Promise(function (resolve, reject) { return __awaiter(_this, void 0, void 0, function () {
+                    var callId, bca;
+                    return __generator(this, function (_a) {
+                        for (;;) {
+                            callId = uid_1.uid();
+                            bca = brideCenterApis[callId];
+                            if (bca === undefined) {
+                                brideCenterApis[callId] = {
+                                    id: callId,
+                                    resolve: resolve,
+                                    reject: reject,
+                                };
+                                break;
+                            }
+                        }
+                        (window.opener || window.parent).postMessage({
+                            type: 'center-api',
+                            callId: callId,
+                            url: url,
+                            method: method,
+                            body: body
+                        }, '*');
+                        return [2 /*return*/];
+                    });
+                }); })];
         });
     });
 }

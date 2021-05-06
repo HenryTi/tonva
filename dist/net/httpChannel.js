@@ -347,23 +347,19 @@ var HttpChannel = /** @class */ (function () {
             var options;
             var _this = this;
             return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        options = this.buildOptions();
-                        options.method = method;
-                        options.body = body;
-                        return [4 /*yield*/, new Promise(function (resolve, reject) { return __awaiter(_this, void 0, void 0, function () {
-                                return __generator(this, function (_a) {
-                                    switch (_a.label) {
-                                        case 0: return [4 /*yield*/, this.fetch(url, options, true, resolve, reject)];
-                                        case 1:
-                                            _a.sent();
-                                            return [2 /*return*/];
-                                    }
-                                });
-                            }); })];
-                    case 1: return [2 /*return*/, _a.sent()];
-                }
+                options = this.buildOptions();
+                options.method = method;
+                options.body = body;
+                return [2 /*return*/, new Promise(function (resolve, reject) { return __awaiter(_this, void 0, void 0, function () {
+                        return __generator(this, function (_a) {
+                            switch (_a.label) {
+                                case 0: return [4 /*yield*/, this.fetch(url, options, true, resolve, reject)];
+                                case 1:
+                                    _a.sent();
+                                    return [2 /*return*/];
+                            }
+                        });
+                    }); })];
             });
         });
     };
@@ -428,7 +424,7 @@ var CenterHttpChannel = /** @class */ (function (_super) {
                         if (!(this.apiToken === undefined && appBridge_1.isBridged())) return [3 /*break*/, 2];
                         return [4 /*yield*/, appBridge_1.bridgeCenterApi(u, options.method, options.body)];
                     case 1: return [2 /*return*/, _a.sent()];
-                    case 2: return [4 /*yield*/, new Promise(function (resolve, reject) { return __awaiter(_this, void 0, void 0, function () {
+                    case 2: return [2 /*return*/, new Promise(function (resolve, reject) { return __awaiter(_this, void 0, void 0, function () {
                             return __generator(this, function (_a) {
                                 switch (_a.label) {
                                     case 0: return [4 /*yield*/, this.fetch(u, options, waiting, resolve, reject)];
@@ -438,7 +434,6 @@ var CenterHttpChannel = /** @class */ (function (_super) {
                                 }
                             });
                         }); })];
-                    case 3: return [2 /*return*/, _a.sent()];
                 }
             });
         });
@@ -456,21 +451,17 @@ var UqHttpChannel = /** @class */ (function (_super) {
             var u;
             var _this = this;
             return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        u = this.hostUrl + url;
-                        return [4 /*yield*/, new Promise(function (resolve, reject) { return __awaiter(_this, void 0, void 0, function () {
-                                return __generator(this, function (_a) {
-                                    switch (_a.label) {
-                                        case 0: return [4 /*yield*/, this.fetch(u, options, waiting, resolve, reject)];
-                                        case 1:
-                                            _a.sent();
-                                            return [2 /*return*/];
-                                    }
-                                });
-                            }); })];
-                    case 1: return [2 /*return*/, _a.sent()];
-                }
+                u = this.hostUrl + url;
+                return [2 /*return*/, new Promise(function (resolve, reject) { return __awaiter(_this, void 0, void 0, function () {
+                        return __generator(this, function (_a) {
+                            switch (_a.label) {
+                                case 0: return [4 /*yield*/, this.fetch(u, options, waiting, resolve, reject)];
+                                case 1:
+                                    _a.sent();
+                                    return [2 /*return*/];
+                            }
+                        });
+                    }); })];
             });
         });
     };

@@ -1079,23 +1079,23 @@ var Nav = /** @class */ (function () {
                         this.saveLocalUser();
                         netToken_1.netToken.set(user.id, user.token);
                         exports.nav.clear();
-                        if (!(callback !== undefined)) return [3 /*break*/, 2];
-                        return [4 /*yield*/, callback(user)];
+                        return [4 /*yield*/, ((_a = this.onChangeLogin) === null || _a === void 0 ? void 0 : _a.call(this, this.user))];
                     case 1:
                         _b.sent();
-                        return [3 /*break*/, 5];
+                        if (!(callback !== undefined)) return [3 /*break*/, 3];
+                        return [4 /*yield*/, callback(user)];
                     case 2:
-                        if (!(this.isWebNav === true)) return [3 /*break*/, 3];
+                        _b.sent();
+                        return [3 /*break*/, 6];
+                    case 3:
+                        if (!(this.isWebNav === true)) return [3 /*break*/, 4];
                         this.navigate('/index');
-                        return [3 /*break*/, 5];
-                    case 3: return [4 /*yield*/, this.showAppView(isUserLogin)];
-                    case 4:
+                        return [3 /*break*/, 6];
+                    case 4: return [4 /*yield*/, this.showAppView(isUserLogin)];
+                    case 5:
                         _b.sent();
-                        _b.label = 5;
-                    case 5: return [4 /*yield*/, ((_a = this.onChangeLogin) === null || _a === void 0 ? void 0 : _a.call(this, this.user))];
-                    case 6:
-                        _b.sent();
-                        return [2 /*return*/];
+                        _b.label = 6;
+                    case 6: return [2 /*return*/];
                 }
             });
         });

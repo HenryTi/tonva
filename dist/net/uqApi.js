@@ -70,97 +70,6 @@ function logoutApis() {
     appBridge_1.logoutUqTokens();
 }
 exports.logoutApis = logoutApis;
-/*
-interface UqLocals {
-    user: number;
-    unit: number;
-    uqs: {[uq:string]: UqLocal};
-}
-*/
-/*
-const uqLocalEntities = 'uqLocalEntities';
-class CacheUqLocals {
-    private local:UqLocals;
-
-    async loadAccess(uqApi: UqApi):Promise<any> {
-        try {
-            let {uqOwner, uqName} = uqApi;
-            if (this.local === undefined) {
-                let ls = null; // localStorage.getItem(uqLocalEntities);
-                if (ls !== null) {
-                    this.local = JSON.parse(ls);
-                }
-            }
-            if (this.local !== undefined) {
-                let {user, uqs} = this.local;
-                if (user !== loginedUserId || uqs === undefined) {
-                    this.local = undefined;
-                }
-                else {
-                    for (let i in uqs) {
-                        let ul = uqs[i];
-                        ul.isNet = undefined;
-                    }
-                }
-            }
-            if (this.local === undefined) {
-                this.local = {
-                    user: loginedUserId,
-                    unit: undefined,
-                    uqs: {}
-                };
-            }
-
-            let ret: any;
-            let un = uqOwner+'/'+uqName;
-            let uq = this.local.uqs[un];
-            if (uq !== undefined) {
-                let {value} = uq;
-                ret = value;
-            }
-            if (ret === undefined) {
-                ret = await uqApi.__loadAccess();
-                //this.saveLocal(un, ret);
-            }
-            return _.cloneDeep(ret);
-        }
-        catch (err) {
-            this.local = undefined;
-            localStorage.removeItem(uqLocalEntities);
-            throw err;
-        }
-    }
-
-    private saveLocal(uqName:string, accessValue: any) {
-        this.local.uqs[uqName] = {
-            value: accessValue,
-            isNet: true,
-        }
-        let str = JSON.stringify(this.local);
-        localStorage.setItem(uqLocalEntities, str);
-    }
-
-    async checkAccess(uqApi: UqApi):Promise<boolean> {
-        if (this.local === undefined) return false;
-        let {uqOwner, uqName} = uqApi;
-        let un = uqOwner+'/'+uqName;
-        let uq = this.local.uqs[un];
-        if (uq === undefined) return false;
-        let {isNet, value} = uq;
-        if (isNet === true) return true;
-        let ret = await uqApi.__loadAccess();
-        let isMatch = _.isMatch(value, ret);
-        if (isMatch === false) {
-            this.saveLocal(un, ret);
-            return false;
-        }
-        uq.isNet = true;
-        return true;
-    }
-}
-
-const localUqs = new CacheUqLocals;
-*/
 var UqApi = /** @class */ (function (_super) {
     __extends(UqApi, _super);
     function UqApi(basePath, appOwner, appName, uqOwner, uqName, access, showWaiting) {
@@ -176,7 +85,6 @@ var UqApi = /** @class */ (function (_super) {
         _this.showWaiting = showWaiting;
         return _this;
     }
-    //setUqVersion(uqVersion:number) {this.uqVersion = undefined}
     UqApi.prototype.init = function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
@@ -191,7 +99,7 @@ var UqApi = /** @class */ (function (_super) {
     };
     UqApi.prototype.getHttpChannel = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var channels, channelUI, channel, arr;
+            var channels, channelUI, channel;
             var _this = this;
             return __generator(this, function (_a) {
                 if (this.showWaiting === true || this.showWaiting === undefined) {
@@ -209,15 +117,12 @@ var UqApi = /** @class */ (function (_super) {
                 else {
                     channel = channels[this.uq] = [];
                 }
-                arr = channel;
+                //let arr = channel as PromiseValue<any>[];
                 return [2 /*return*/, new Promise(function (resolve, reject) { return __awaiter(_this, void 0, void 0, function () {
-                        var uqToken, url, token, _i, arr_1, pv;
+                        var uqToken, url, token;
                         return __generator(this, function (_a) {
                             switch (_a.label) {
                                 case 0:
-                                    arr.push({ resolve: resolve, reject: reject });
-                                    if (arr.length !== 1)
-                                        return [2 /*return*/];
                                     uqToken = appBridge_1.appUq(this.uq);
                                     if (!!uqToken) return [3 /*break*/, 2];
                                     //debugger;
@@ -232,10 +137,7 @@ var UqApi = /** @class */ (function (_super) {
                                     this.token = token;
                                     channel = new httpChannel_1.UqHttpChannel(url, token, channelUI);
                                     channels[this.uq] = channel;
-                                    for (_i = 0, arr_1 = arr; _i < arr_1.length; _i++) {
-                                        pv = arr_1[_i];
-                                        pv.resolve(channel);
-                                    }
+                                    resolve(channel);
                                     return [2 /*return*/];
                             }
                         });
@@ -243,18 +145,6 @@ var UqApi = /** @class */ (function (_super) {
             });
         });
     };
-    /*async update():Promise<string> {
-        return await this.get('update');
-    }*/
-    /*
-    async __loadAccess():Promise<any> {
-        let acc = this.access === undefined?
-            '' :
-            this.access.join('|');
-        let ret = await this.get('access', {acc:acc});
-        return ret;
-    }
-    */
     UqApi.prototype.loadAccess = function () {
         return __awaiter(this, void 0, void 0, function () {
             var acc, ret;
@@ -272,14 +162,6 @@ var UqApi = /** @class */ (function (_super) {
             });
         });
     };
-    /*async loadEntities():Promise<any> {
-        return await this.get('entities');
-    }*/
-    /*
-    async checkAccess():Promise<boolean> {
-        return await localUqs.checkAccess(this);
-    }
-    */
     UqApi.prototype.allSchemas = function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
