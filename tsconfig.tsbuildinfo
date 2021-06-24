@@ -712,7 +712,7 @@
         "affectsGlobalScope": false
       },
       "./src/net/uqapi.ts": {
-        "version": "33163e7df14463fe311bf6ac0f166b91b257de058175069b24f2b601db7ac2c6",
+        "version": "0779baa39889560f2305747fa4787ab3efc70dbbf824fda923578bca372a3e48",
         "signature": "d7742218dd4d0d71039a3794a649a303b28b54e7dfdfecd497a782129cf9a61f",
         "affectsGlobalScope": false
       },

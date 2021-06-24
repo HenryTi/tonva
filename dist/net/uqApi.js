@@ -491,7 +491,7 @@ var UserApi = /** @class */ (function (_super) {
             var ret, token, user, nick, icon;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.get('user/login', params)];
+                    case 0: return [4 /*yield*/, this.post('user/login', params)];
                     case 1:
                         ret = _a.sent();
                         switch (typeof ret) {
