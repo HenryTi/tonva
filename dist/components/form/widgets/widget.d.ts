@@ -54,5 +54,5 @@ export declare abstract class Widget {
     protected renderErrors(): React.ReactElement<{
         key: string;
         className: string;
-    }, string | ((props: any) => React.ReactElement<any, string | any | (new (props: any) => React.Component<any, any, any>)>) | (new (props: any) => React.Component<any, any, any>)>[];
+    }, string | React.JSXElementConstructor<any>>[];
 }

@@ -210,7 +210,7 @@ var UQsMan = /** @class */ (function () {
                         return ret;
                     debugger;
                     var err = "entity " + uqName + "." + String(key) + " not defined";
-                    console.error(err);
+                    //console.error(err);
                     that.showReload('UQ错误：' + err);
                     return undefined;
                 }
@@ -236,7 +236,7 @@ var UQsMan = /** @class */ (function () {
                     }
                 }*/
                 debugger;
-                console.error('error in uqs');
+                //console.error('error in uqs');
                 that.showReload("\u4EE3\u7801\u9519\u8BEF\uFF1A\u65B0\u589E uq " + String(key));
                 return undefined;
             },
@@ -245,9 +245,27 @@ var UQsMan = /** @class */ (function () {
     UQsMan.prototype.getUqCollection = function () {
         return this.collection;
     };
-    UQsMan.prototype.showReload = function (msg) {
+    /*
+    private showReload(msg: string) {
         this.localMap.removeAll();
-        components_1.nav.showReloadPage(msg);
+        nav.showReloadPage(msg);
+    }
+    */
+    UQsMan.prototype.showReload = function (msg) {
+        var cache = this.localMap.child('$reload-tick');
+        var reloadTick = cache.get();
+        if (!reloadTick)
+            reloadTick = 0;
+        console.error(msg);
+        this.localMap.removeAll();
+        var tick = Date.now();
+        cache.set(tick);
+        if (tick - reloadTick < 60 * 1000) {
+            components_1.nav.showReloadPage(msg);
+        }
+        else {
+            components_1.nav.reload();
+        }
     };
     UQsMan.prototype.setTuidImportsLocal = function () {
         var ret = [];

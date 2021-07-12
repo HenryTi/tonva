@@ -290,6 +290,7 @@ function buildAppUq(uq, uqOwner, uqName, appOwner, appName) {
                             (window.opener || window.parent).postMessage({
                                 type: 'app-api',
                                 apiName: uq,
+                                //hash: appInFrame.hash,
                             }, "*");
                         })];
             }

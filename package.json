@@ -1,6 +1,6 @@
 {
   "name": "tonva",
-  "version": "1.9.43",
+  "version": "1.9.44",
   "description": "tonva client libs",
   "private": false,
   "main": "dist/index.js",
@@ -23,7 +23,7 @@
     "classnames": "^2.2.6",
     "font-awesome": "^4.7.0",
     "jwt-decode": "^2.2.0",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "mobx": "^5.15.7",
     "mobx-react": "^6.3.1",
     "react": "^16.9.0",
