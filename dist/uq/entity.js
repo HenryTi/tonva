@@ -362,8 +362,10 @@ var Entity = /** @class */ (function () {
     };
     Entity.prototype.packRow = function (result, fields, data) {
         var len = fields.length;
-        if (len === 0)
+        if (len === 0) {
+            result.push(ln);
             return;
+        }
         var ret = '';
         ret += this.escape(data, fields[0]);
         for (var i = 1; i < len; i++) {
